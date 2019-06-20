@@ -1,0 +1,196 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+<!-- TOP BAR START -->
+
+<header id="page-header" class="top-bar fixed-top">
+    <div id="ae-top-bar">
+        <div class="container-max top-bar-container">
+            <div class="row">
+                
+                <ul>
+
+                    <li>
+                        <i class="ae-icon-checkmark-circle"></i> Trusted Shops Käuferschutz
+                    </li>
+
+                    <li>
+                        <i class="ae-icon-checkmark-circle"></i> Kostenfreier Versand ab 20€ Bestellwert
+                    </li>
+
+                    <li>
+                        <i class="ae-icon-checkmark-circle"></i> Kauf auf Rechnung möglich
+                    </li>
+
+                    <li>
+                        <i class="ae-icon-checkmark-circle"></i> Professioneller Kundenservice
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="main-head">
+
+            <div class="container header-content">
+                <div class="row">
+                    <div class="col-md-4 txt-left hidden-sm hidden-xs">
+
+
+                        {% if services.customer.getContactId() > 0 %}
+
+                             <a href="{{ urls.myAccount }}">
+                                <div class="header-item-wrapper">
+                                    <i class="ae-icon-user"></i><br>
+                                    <span>Mein Konto</span>
+                                </div>
+                            </a>
+
+                        {% else %}
+
+                        <a data-toggle="modal" href="#login">
+                                <div class="header-item-wrapper">
+                                    <i class="ae-icon-user"></i><br>
+                                    <span>Anmelden</span>
+                                </div>
+                            </a>
+
+                        {% endif %}
+
+
+
+                        <a href="https://www.accessories-exclusive.de/kontakt" title="Kontakt">
+                            <div class="header-item-wrapper">
+                                <i class="ae-icon-bubble"></i><br>
+                                <span>Kontakt</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-4 col-xs-6 txt-center logo-wrapper">
+                        <a href="{{ homepageURL }}">
+                            <img src="/layout/callisto_3/img/accessories-exclusive-logo.svg" alt="Accessories Exclusive" title="Accessories Exclusive" width="203" height="50"/>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 txt-right hidden-sm hidden-xs">
+                        <a href="https://www.accessories-exclusive.de/wish-list" title="Wunschliste">
+                            <div class="header-item-wrapper">
+                                <i class="ae-icon-heart"></i><br>
+                                <span>Wunschliste</span>
+                            </div>
+                        </a>
+                        <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
+                            <div class="header-item-wrapper">
+                                <span id="warenkorb-qty" class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+                                <i class="ae-icon-cart"></i><br>
+                                <span>Warenkorb</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 hidden-md hidden-lg mobile-menu">
+                        <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler d-lg-none" type="button">
+                             &#9776;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% include "AccessoriesExclusive::PageDesign.Partials.Header.Navigation" %}
+    </div>
+</header>
+
+
+<!-- TOP BAR END -->
+
+<!-- breadcrumb -->
+{% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
+    {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
+{% endif %}
+
+<div class="container-max page-header">
+    <div class="row">
+        <div id="searchBox" class="cmp cmp-search-box collapse">
+            {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
+            {% if overrideSearchBar | trim is empty %}
+                <item-search template="#vue-item-search"></item-search>
+            {% else %}
+                {{ overrideSearchBar | raw }}
+            {% endif %}
+        </div>
+
+        {% if enableCurrencySelect == "true" %}
+            <div id="currencySelect" class="cmp cmp-currency-select collapse">
+                <div class="container-max">
+                    <div class="row py-3">
+
+                        <div class="currency-list col-12">
+                            <div class="list-title">
+                                <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
+                                <hr>
+                            </div>
+                            <ul class="text-center text-sm-left">
+                                {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
+                                    <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
+                                        <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
+                                            {% if currencyFormatSelect == 'all' %}
+                                                {{ currency.name }} <br class="d-block d-sm-none" />({{ currency.symbol }})
+                                            {% else %}
+                                                {{ currency[currencyFormatSelect] }}
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <shop-country-settings
+                country-flag-prefix="flag-icon-"
+                :shipping-countries="{{ services.country.getActiveCountriesList() | filterFields(['id','currLangName', 'isoCode2', 'states.id', 'states.name']) | json_encode }}"
+                :shipping-country-id="{{ services.checkout.getShippingCountryId }}">
+            <div id="countrySettings" class="cmp cmp-country-settings collapse">
+                <div class="container-max">
+                    <div class="row py-3">
+                        <div class="col-12 col-lg-6">
+
+                            <div class="language-settings">
+                                <div class="list-title">
+                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+                                    <hr>
+                                </div>
+
+                                {% set languageList = services.webstoreConfig.getActiveLanguageList() %}
+                                {% set languageUrls = services.url.getLanguageURLs() %}
+                                <ul>
+                                    {% for language in languageList %}
+                                        <li{% if lang == language %} class="active"{% endif %}>
+                                            <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
+                                                <i class="flag-icon flag-icon-{{ language }}"></i>
+                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="shipping-settings">
+                                <div class="list-title">
+                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
+                                    <hr>
+                                </div>
+                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </shop-country-settings>
+    </div>
+</div>

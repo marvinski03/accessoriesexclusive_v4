@@ -1,0 +1,453 @@
+{% extends getPartial('page-design') %}
+
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% set showDefaultHomepage = config("Ceres.default.homepage") %}
+{% set companyLogo  = config("Ceres.header.company_logo") %}
+{% set companyName  = trans("Ceres::Template.headerCompanyName") %}
+
+{% block PartialHead %}
+    <meta name="description" content="{{ trans('Ceres::Template.homepageMetaDescription') }}">
+    <meta name="robots" content="{% if forceNoIndex %}NOINDEX{% else %}{{ config("Ceres.meta.robots_home") }}{% endif %}">
+    <meta property="og:title" content="{{ companyName }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}"/>
+    <meta property="og:image"
+          content="{% if ('http' in companyLogo) or ('layout/' in companyLogo) %}{{ companyLogo }}{% else %}{{ plugin_path('Ceres') }}/{{ companyLogo }}{% endif %}"/>
+
+    <script type="application/ld+json">
+        {"@context": "http://schema.org","@type": "WebSite","url": "{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}","potentialAction":{"@type": "SearchAction","target": "{{ services.webstoreConfig.getWebstoreConfig().domainSsl }}/search?query={search_term}","query-input": "required name=search_ter	"}}
+    </script>
+
+    <title>{{ companyName }}</title>
+{% endblock %}
+
+{% block PageBody %}
+
+<div id="front-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-7">
+					
+
+				<div class="carousel slide ae-front" data-interval="5000" data-ride="carousel" id="carousel-example">
+			        <div class="carousel-inner" id="carousel-content">
+			            
+			                <div class="carousel-item text-muted active">
+			                    <a href="https://www.accessories-exclusive.de/marken/lindenmann/">
+			                        <img class="img-fluid" src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/lindenmann-slide.jpg" />
+			                    </a>
+			                    
+			                    <div class="ae-slide-text">
+									<a href="https://www.accessories-exclusive.de/marken/lindenmann/">
+										<span class="ae-slide-text-top">Lindenmann</span>
+										<span class="ae-slide-text-bottom">Jetzt die neue Kollektion entdecken</span>
+										<span class="ae-slide-button">Artikel ansehen</span>
+									</a>
+								</div>
+
+			                </div>
+
+			                 <div class="carousel-item text-muted">
+			                    <a href="https://www.accessories-exclusive.de/marken/bruno-banani/">
+			                        <img class="img-fluid" src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/slides/bruno-banani-guertel.jpg" />
+			                    </a>
+			                    
+			                    <div class="ae-slide-text top">
+									<a href="https://www.accessories-exclusive.de/marken/bruno-banani/">
+										<span class="ae-slide-text-top">Bruno Banani</span>
+										<span class="ae-slide-text-bottom">Hochwertige Gürtel von Bruno Banani</span>
+										<span class="ae-slide-button">Jetzt anschauen</span>
+									</a>
+								</div>
+			                    	
+			                </div>
+
+			                <div class="carousel-item text-muted">
+			                    <a href="https://www.accessories-exclusive.de/marken/the-art-of-belt/">
+			                        <img class="img-fluid" src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/slides/art-of-belt.jpg" />
+			                    </a>
+			                    
+			                    <div class="ae-slide-text top">
+									<a href="https://www.accessories-exclusive.de/marken/the-art-of-belt/">
+										<span class="ae-slide-text-top">The art of belt</span>
+										<span class="ae-slide-text-bottom">Entdecken Sie unsere Kollektion</span>
+										<span class="ae-slide-button">Artikel ansehen</span>
+									</a>
+								</div>
+			                    	
+			                </div>
+			            
+			        </div>
+
+		        <a class="left carousel-control carousel-control-prev" href="#carousel-example" data-slide="prev"></a>
+		        <a class="right carousel-control carousel-control-next" href="#carousel-example" data-slide="next"></a>
+
+		    </div>
+
+
+			</div>
+			<div class="col-lg-4 col-md-5 space-to-slider">
+				<div class="border-box">
+					<div class="border-box-txt">
+						<a href="https://www.accessories-exclusive.de/damen/" title="Damen Accessoires">
+							<span class="border-box-txt-top">Damen</span><br />
+							<span class="border-box-txt-bottom">Accessoires</span>
+						</a>
+					</div>
+					<a href="https://www.accessories-exclusive.de/damen/" title="Damen Accessoires"><img alt="Damen Accessoires" src="/documents/category/328/damen-accessoires.jpg" title="Damen Accessoires" /></a>
+				</div>
+				
+				<div class="border-box">
+					<div class="border-box-txt">
+						<a href="https://www.accessories-exclusive.de/herren/" title="Herren Accessoires">
+							<span class="border-box-txt-top">Herren</span><br />
+							<span class="border-box-txt-bottom">Accessoires</span>
+						</a>
+					</div>
+					<a href="https://www.accessories-exclusive.de/herren/" title="Herren Accessoires"><img alt="Herren Accessoires" src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/herren-accessoires.jpg" title="Herren Accessoires" /></a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-max">
+		<div class="row margin-top-3">
+			<span class="title custom-margin">Neu im Sortiment</span>
+			<div class="col">
+
+		            {% for content in container("Ceres::Homepage") if content.plugin == "Plenty" %}
+                        {{ content.result|raw }}
+                    {% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="custom-margin">Ledergürtel für Herren und Damen</h1>
+
+				<p class="center-large">Wir freuen uns Ihnen eine sehr umfangreiche Auswahl an hochwertigen Ledergürtel für jeden Anlass anbieten zu können. Von elegantem Anzuggürtel bis hin zum sportiven Vintage-Modellen - wir runden gerne Ihr Outfit mit zeitgemäßen Accessoires ab. Entdecken Sie das große Angebot an Accessoires wie Manschettenknöpfe, Krawattenklammer und Hosenträger zum besten Preis-Leistungs-Verhältnis. Profitieren Sie vom deutschlandweiten schnellen Versand mit DHL. Die AE Accessories Exclusive GmbH steht für sehr gute Qualität und einen kundenfreundlichen Service.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="border-box">
+					<div class="border-box-txt">
+						<a href="https://www.accessories-exclusive.de/herren/lederguertel/" title="Herren Ledergürtel">
+							<span class="border-box-txt-top">Herren</span><br />
+							<span class="border-box-txt-bottom">Ledergürtel</span>
+						</a>
+					</div>
+					<a href="https://www.accessories-exclusive.de/herren/lederguertel/" title="Herren Ledergürtel"><img alt="Herren Ledergürtel" src="/documents/category/328/herren-lederguertel.jpg" title="Herren Ledergürtel" /></a>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="border-box">
+					<div class="border-box-txt">
+						<a href="https://www.accessories-exclusive.de/damen/lederguertel/" title="Damen Ledergürtel">
+							<span class="border-box-txt-top">Damen</span><br />
+							<span class="border-box-txt-bottom">Ledergürtel</span>
+						</a>
+					</div>
+					<a href="https://www.accessories-exclusive.de/damen/lederguertel/" title="Damen Ledergürtel"><img alt="Damen Ledergürtel" src="/documents/category/328/damen-lederguertel.jpg" title="Damen Ledergürtel" /></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="border-box" id="video-anleitung">
+					<div class="border-box-txt">
+						<span class="border-box-txt-top">Video-Anleitung</span><br />
+						<span class="border-box-txt-bottom">Lindenmann Ledergürtel kürzen</span>
+					</div>
+
+					<img alt="Ledergürtel kürzen" src="/documents/category/328/anleitung-lederguertel-kuerzen.jpg" title="Ledergürtel kürzen" /></div>
+
+					<div id="yt-video-anleitung">
+
+						<div class="embed-container">
+							<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/_UElZGcxlDU"></iframe>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6 front-txt-wrapper-top">
+					<div class="front-txt-border">
+						<div class="front-txt-wrapper">
+							<h2>Accessories Exclusive Onlineshop – Ledergürtel für Damen und Herren</h2>
+							<p>Hosenträger, Manschettenknöpfe, Krawattennadel und andere Accessoires kaufen Sie hier bei AE Accessories Exclusive GmbH! Versandkostenfreie Lieferung ab 20,00 € Bestellwert und täglicher Versand an den Werktagen kombiniert mit bestem Preisleistungsverhältnis im Accessoires Bereich. Entdecken Sie <strong>Ledergürtel für Damen und Herren</strong> sowie viele weitere Artikel.</p>
+							<p>Bei uns finden Sie außerdem Business- und Freizeit Ledergürtel für Damen und Herren, Manschettenknöpfe und andere Accessoires. Der AE Accessories Exclusive GmbH Online Shop bietet eine große Auswahl an Gürteln für Damen und Herren. Das Businesssortiment ist vielfältig und beinhaltet ein breites Angebot an qualitativ hochwertigen Gürteln und Manschettenknöpfen sowie anderen Accessoires. Zusätzlich umfasst die AE Accessories Exclusive GmbH Kollektion auch in Übergrößen oder eine ausgesuchte Auswahl für Corporate Fashion. Weitere Hersteller-Informationen zu unseren Gürteln finden Sie unter: <a href="http://www.lindenmann.com/" target="_blank" title="Ledergürtel von Lindenmann">
+							http://www.lindenmann.com/</a></p>
+							<h3>Gürtel haben eine lange Tradition</h3>
+							<p>Mit „Es war einmal...“ beginnen die meisten Märchen, aber die Geschichte des Gürtels ist kein Märchen, sondern eine lange Tradition. Gürtel aus Leder gibt es schon immer. Man könnte meinen wir können gar nicht mehr ohne, oder? Die Hose, die ohne Gürtel rutscht, der Rock, der ein schickes Accessoire benötigt und die Taille, die mit ihm dekoriert werden möchte.</p>
+							<p>Seit Menschengedenken werden verschiedenste Gürtelmodelle getragen. Anfänglich eigentlich aus ganz praktischen Gründen. Aber bereits im Mittelalter wurden Damengürtel und Herrengürtel dann erstmals als Accessoire getragen. Natürlich ebenfalls aus Leder, aber teils auch aus Samt oder Brokat. Gerade Rindsleder oder Schweinsleder sind sehr beliebt, weil sie ein natürliches und so einfach zu erhaltendes „Abfallprodukt“ sind.</p>
+							<h4>Passende Gürtel aus Leder für alle Trends und jede Tageszeit</h4>
+							<p>Der Herrengürtel aus Leder ist einfach ein Klassiker und wird natürlich besonders zur Jeans sehr gerne getragen. Gürtel werden im Allgemeinen immer noch hauptsächlich dafür genutzt, um Hosen da zu halten, wo sie hingehören. Damengürtel dienen auch gerne mal dazu eine Sanduhr-Figur zu erzeugen. Nichtsdestotrotz gehören die Gürtel aus Leder zu schicken Accessoires, die sich zeigen dürfen.</p>
+							<p>Hemden in der Hose werden in Kombination mit einem Herrengürtel nicht nur zum Baucheinschneider, sondern gleich zum modischen Accessoire. In dem sollte der Gürtel perfekt auf Hemd und Jackett abgestimmt werden. Schwarzes Leder ist bei einem Herrengürtel natürlich ein Klassiker, aber hin und wieder kann die farbliche Alternative ein Zeichen für Stilbewusstsein und Selbstsicherheit sein. Dezent und doch farblich zum Anzug passend und dafür frech und bunt zur Jeans – ein Gürtel aus Leder zeigt für jeden Tagesabschnitt seine besondere Seite.</p>
+							<p>Bei den Damen verhält es sich nicht anders. Die Damengürtel müssen zwar Rock und Hose an der richtigen Stelle halten, was bei Jeans mit einem Stretchanteil von 2 % oftmals schon eine Herausforderung ist, aber zugleich müssen sie farblich und im Design zum Outfit passen. Der neue Trend Shirts von vorne in die Hose zu stecken ist ein absolutes Highlight, wenn auch die Schnalle der Damengürtel hervorstechen darf. Optimal sind dafür zum Beispiel Modelle wie von The Art of Belt by LINDENMANN. Für diesen Trend ist eine schicke Gürtelschnalle und ein tolles Leder-Material also ein absoluter Muss.</p>
+							<h4>Die richtige Schnalle und der perfekte Verschluss als Accessoires</h4>
+							<p>Vor allem Gürtel mit modischen Schnallen zählen heute zu absoluten Highlights. Doch auch ein Verschluss hat viele Erscheinungsbilder. Auch Gürtel aus Leder besitzen hier eine große Bandbreite. Da gibt es die Schnallenverschlüsse, Modelle mit Haken und D-Ringe, meist im Doppel. Der Klassiker ist natürlich die Dornschnalle, also das Modell mit Löchern und einem Dorn. Das bekannteste Modell der Dornschnalle sind die Nietengürtel – der Klassiker zur Jeans, weil hier immer genug Löcher vorhanden sind – egal, ob zu Weihnachten oder zum Diäten für die Bikinifigur.</p>
+							<p>Bei Gürtel aus Leder kann man schnell mal ein Loch mehr einstanzen und somit den Umfang verkleinern. Das funktioniert bei einem Damengürtel aus Leder ebenso wie bei einem Herrengürtel aus Leder. Zumindest wenn das Modell so einfach gehalten ist, dass man problemlos durch das Leder durchstanzen kann.</p>
+							<h3>Gürtel aus Leder sind Unikate</h3>
+							<p>Natürlich gibt es auch die vegane Version mit einem Gürtel aus Kunstleder, aber es ist eben nur eine Alternative. Die Besonderheiten, die das Leder aufweist wie Gebrauchsspuren und der Used-Look, sind eben nur beim Naturmaterial Leder zu finden. Weitere Alternativen sind natürlich Gürtel aus Stoff, Kunststoff oder besondere Modelle mit Perlen, Glitzersteinchen und anderen Accessoires. Wichtig ist aber, dass der Gürtel stets zum Outfit des Trägers oder der Trägerin passt.</p>
+							<p>Wenn Sie Fragen zu einem Gürtel haben oder eine gezielte Beratung wünschen, zögern Sie nicht uns zu kontaktieren. Mit unserer langjährigen Erfahrung haben wir für jeden Wunsch unserer Kunden eine passende Lösung parat.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h4 class="custom-margin">Unser vielfältiges Angebot</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="border-box">
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/marken/pierre-cardin/" title="Pierre Cardin Artikel">
+								<span class="border-box-txt-top">Pierre Cardin</span><br />
+								<span class="border-box-txt-bottom">Marken-Artikel</span>
+							</a>
+						</div>
+						<a href="https://www.accessories-exclusive.de/marken/pierre-cardin/" title="Pierre Cardin Artikel"><img alt="Pierre Cardin Artikel" src="/documents/category/328/pierre-cardin-artikel.jpg" title="Pierre Cardin Artikel" /> </a>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="border-box">
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/marken/bruno-banani/" title="Bruno Banani Artikel">
+								<span class="border-box-txt-top">Bruno Banani</span><br />
+								<span class="border-box-txt-bottom">Marken-Artikel</span>
+							</a>
+						</div>
+						<a href="https://www.accessories-exclusive.de/marken/bruno-banani/" title="Bruno Banani Artikel"><img alt="Bruno Banani Artikel" src="/documents/category/328/bruno-banani-artikel.jpg" title="Bruno Banani Artikel" /> </a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/herren/manschettenknoepfe/?producer=1" title="Lindenmann Manschettenknöpfe">
+								<img alt="Lindenmann Manschettenknöpfe" height="189" src="/documents/category/328/lindenmann-manschettenknoepfe.png" title="Lindenmann Manschettenknöpfe" width="180" /> 
+							</a>
+						</div>
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/herren/manschettenknoepfe/?producer=1" title="Lindenmann Manschettenknöpfe">
+								<span class="border-box-txt-top">Lindenmann</span><br />
+								<span class="border-box-txt-bottom">Manschettenknöpfe</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/herren/krawattennadel-krawattenklammer/?producer=1" title="Lindenmann Krawattennadeln">
+								<img alt="Lindenmann Krawattennadeln" height="110" src="/documents/category/328/lindenmann-krawattennadeln.png" style="margin-top:50px" title="Lindenmann Krawattennadeln" width="257" />
+							</a>
+						</div>
+
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/herren/krawattennadel-krawattenklammer/?producer=1" title="Lindenmann Krawattennadeln">
+								<span class="border-box-txt-top">Lindenmann</span><br />
+								<span class="border-box-txt-bottom">Krawattennadeln</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/herren/portemonnaies/?producer=1" title="Lindenmann Portemonnaies">
+								<img alt="Lindenmann Portemonnaies" height="178" src="/documents/category/328/lindenmann-portemonnaies.png" style="margin-top:10px" title="Lindenmann Portemonnaies" width="201" />
+							</a>
+						</div>
+
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/herren/portemonnaies/?producer=1" title="Lindenmann Portemonnaies">
+								<span class="border-box-txt-top">Lindenmann</span><br />
+								<span class="border-box-txt-bottom">Portemonnaies</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/new/umhaengetaschen/" title="Ledertaschen">
+								<img alt="Ledertaschen" height="171" src="/documents/category/328/ledertaschen.png" style="margin-top:20px" title="Ledertaschen" width="284" />
+							</a>
+						</div>
+
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/new/umhaengetaschen/" title="Ledertaschen">
+								<span class="border-box-txt-top alone">Ledertaschen</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/herren/hosentraeger/" title="Hosenträger">
+								<img alt="Hosenträger" height="185" src="/documents/category/328/hosentraeger.png" style="margin-top:10px" title="Hosenträger" width="93" /> 
+							</a>
+						</div>
+
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/herren/hosentraeger/" title="Hosenträger">
+								<span class="border-box-txt-top alone">Hosenträger</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="border-box inverse">
+						<div class="border-box-img">
+							<a href="https://www.accessories-exclusive.de/herren/schals/" title="Schals für Herren">
+								<img alt="Schals für Herren" height="196" src="/documents/category/328/schals.png" style="margin-top:20px" title="Schals für Herren" width="216" />
+							</a>
+						</div>
+
+						<div class="border-box-txt">
+							<a href="https://www.accessories-exclusive.de/herren/schals/" title="Schals für Herren">
+								<span class="border-box-txt-top alone">Schals</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="marken-slider carousel slide" data-interval="5000" data-ride="carousel" >
+					<div class="carousel-inner">
+
+
+						<div class="carousel-item active">
+							<a href="https://www.accessories-exclusive.de/marken/brax-feel-good/">
+								<img alt="Brax" src="/documents/category/328/preview/brax-feel-good.jpg" title="Brax" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/bruno-banani/">
+								<img alt="Bruno Banani" src="/documents/category/328/preview/bruno-banani.jpg" title="Bruno Banani" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/bugatti/">
+								<img alt="Bugatti" src="/documents/category/328/preview/bugatti.jpg" title="Bugatti" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/g-chabrolle/">
+								<img alt="G Chabrolle" src="/documents/category/328/preview/g-chabrolle.jpg" title="G Chabrolle" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/lindenmann/">
+								<img alt="Lindenmann" src="/documents/category/328/preview/lindenmann.jpg" title="Lindenmann" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/mano/">
+								<img alt="Mano" src="/documents/category/328/preview/mano.jpg" title="Mano" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/otto-kern/">
+								<img alt="Otto Kern" src="/documents/category/328/preview/otto-kern.jpg" title="Otto Kern" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/pierre-cardin/">
+								<img alt="Pierre Cardin" src="/documents/category/328/preview/pierre-cardin.jpg" title="Pierre Cardin" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/the-art-of-belt/">
+								<img alt="The Art of Belt" src="/documents/category/328/preview/the-art-of-belt.jpg" title="The Art of Belt" />
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="https://www.accessories-exclusive.de/marken/wenger/">
+								<img alt="Wenger" src="/documents/category/328/preview/wenger.jpg" title="Wenger" />
+							</a>
+						</div>
+
+					</div>
+
+
+			        <a class="left carousel-control carousel-control-prev" href="#carousel-example" data-slide="prev"></a>
+			        <a class="right carousel-control carousel-control-next" href="#carousel-example" data-slide="next"></a>
+
+
+				</div> <!-- SLIDER ENDE -->
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script>
+		$(document).ready(function(){
+			$("#video-anleitung").click(function(){
+				$(this).css("display","none");
+				$("#yt-video-anleitung").css("display","block");
+			});
+		});
+
+		// Instantiate the Bootstrap carousel
+
+		// for every slide in carousel, copy the next slide's item in the slide.
+		// Do the same for the next, next item.
+		$('.marken-slider .carousel-item').each(function(){
+		  var next = $(this).next();
+		  if (!next.length) {
+		    next = $(this).siblings(':first');
+		  }
+		  next.children(':first-child').clone().appendTo($(this));
+		  
+		  if (next.next().length>0) {
+		    next.next().children(':first-child').clone().appendTo($(this));
+		  } else {
+		  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+		  }
+		});
+
+	</script>
+
+
+
+
+
+{% endblock %}

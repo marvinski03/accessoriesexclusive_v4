@@ -1,0 +1,33 @@
+{% set companyLogo  = config("Ceres.header.company_logo") %}
+{% set lang         = services.sessionStorage.getLang() %}
+{% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
+{% set companyName  = trans("Ceres::Template.headerCompanyName") %}
+{% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
+
+<nav class="navbar{% if useMegaMenu %} megamenu{%endif%}">
+    <div class="container-max">
+        <div class="row scroll-logo-float-row-parent">
+
+            <a href="/" class="hidden-sm hidden-xs scroll-logo-float-row">
+                    <img src="/layout/callisto_3/img/accessories-exclusive-logo.svg" alt="Accessories Exclusive" title="Accessories Exclusive" width="130" height="29" class="scroll-down-logo">
+            </a>
+
+            <div id="mainNavbarCollapsable" class="scroll-logo-float-row">
+                <ul class="breadcrumb">
+                    <li class="btnClose"></li>
+                </ul>
+                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
+                    {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
+                    {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
+
+                    <div id="search-toggle">
+                        <i class="ae-icon-magnifier"></i>
+                        <i class="ae-icon-cross-circle"></i>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</nav>
+

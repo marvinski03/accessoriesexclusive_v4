@@ -1,0 +1,141 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% set numberOfCols = config('Ceres.footer.number_of_cols') %}
+{% set colSize = (12 / (numberOfCols + 1)) %}
+{% set displayedCategories = [] %}
+{% set numberOfFeatures = config('Ceres.footer.number_of_features') %}
+{% set topButtonPosition = config('Ceres.footer.to_top_button') %}
+
+{% set footerContainer = LayoutContainer.show("Ceres::Footer") | trim %}
+
+
+<div class="pre-footer">
+
+    <div class="container">
+        <h4 class="custom-margin">Sicherheit und Komfort in unserem Onlineshop</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="shop-sicherheit-komfort">
+                    <i class="ae-icon-rocket"></i>
+                    <span>Sicherer und schneller Versand</span>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/dhl-logo.png" alt="DHL" title="DHL"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-sicherheit-komfort">
+                    <i class="ae-icon-bag-euro"></i>
+                    <span>Viele Zahlungsmöglichkeiten</span>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/paypal-plus.png" alt="PayPal Plus" title="PayPal Plus"/>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/ec.png" alt="Banküberweisung" title="Banküberweisung"/>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/amazon-payments.png" alt="Amazon Payments" title="Amazon Payments"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-sicherheit-komfort">
+                    <i class="ae-icon-shield-check"></i>
+                    <span>Käuferschutz & Datensicherheit</span>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/ssl-siegel.png" alt="SSL" title="SSL"/>
+                    <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/trusted-shops-siegel.png" alt="Trusted Shops" title="Trusted Shops"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="newsletter">
+            <div class="row">
+                <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
+                    <h4>Gerne halten wir Sie auf dem Laufenden</h4>
+                    
+                    <form class="form-inline form-block-4-button p" method="post" action="https://www.accessories-exclusive.de/content/startseite/" data-plenty="submit:Validator.validate(this, 'has-error')">
+                        <input name="ActionCall" value="WebActionSendCmsForm" type="hidden">
+                        <input name="FormID" value="-1" type="hidden">
+                        <input name="BranchId" value="#" type="hidden">
+                        <div class="form-group">
+                            <label class="sr-only" for="newsletterFirstName">Vorname</label>
+                            <input class="form-control" id="newsletterFirstName" type="text" name="FormFields[0]" placeholder="Vorname">
+                        </div><!--
+                        --><div class="form-group">
+                            <label class="sr-only" for="newsletterLastName">Nachname</label>
+                            <input class="form-control" id="newsletterLastName" type="text" name="FormFields[1]" placeholder="Nachname">
+                        </div><!--
+                        --><div class="form-group">
+                            <label class="sr-only" for="newsletterEmail">E-Mail-Adresse</label>
+                            <input class="form-control" id="newsletterEmail" type="email" name="FormFields[2]" placeholder="E-Mail-Adresse *" data-plenty-validate="mail">
+                        </div><!--
+                        --><button class="btn btn-primary" type="submit">
+                            <span class="">Abonnieren </span><span class="glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+
+    <div class="container margin-top-3">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/accessories-exclusive-logo.svg" alt="Accessories Exclusive" title="Accessories Exclusive" width="155" height="40" id="footer-logo"/><br>
+                &copy; 2019 Accessories Exclusive.<br>All Rights reserved.
+            </div>
+            
+            
+            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                <span class="footer-title">Einkaufen</span>
+                <ul class="footerList">
+                    <li><a href="https://www.accessories-exclusive.de/content/bezahlung/">Zahlungsarten</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/content/versandarten/">Versandarten & -kosten</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/ueber-uns/widerrufsrecht/">Widerrufsrecht</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/content/warenkorb/">Warenkorb</a></li>
+                    <li><a href="#" title="Zur Kasse">Zur Kasse</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/content/faq/">Hilfe</a></li>
+                </ul>
+            </div>
+            
+            
+            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                <span class="footer-title">Mein Konto</span>
+                <ul class="footerList">
+                    <li><a data-toggle="modal" href="#registration" title="Registrieren">Registrieren</a></li>
+                    <li><a data-toggle="modal" href="#login" title="Login">Login</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/wish-list/" title="Wunschliste">Wunschliste</a></li>
+                </ul>
+            </div>
+            
+            
+            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                <span class="footer-title">Unternehmen</span>
+                <ul class="footerList">
+                    <li><a href="https://www.accessories-exclusive.de/kontakt/">Kontakt</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/ueber-uns/datenschutz/">Datenschutzerklärung</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/ueber-uns/agb/">AGB</a></li>
+                    <li><a href="https://www.accessories-exclusive.de/kontakt/impressum/">Impressum</a></li>
+                </ul>
+            </div>
+            
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 social-media">
+                <span class="footer-title">Social Media</span>
+                <a href="https://www.facebook.com/ACCESSORIES-exclusive-153116904785813/" title="Facebook" target="_blank"><img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/facebook.png" alt="Facebook" title="Facebook" width="24" height="24"/></a>
+                <a href="https://twitter.com/accessories4you" title="Twitter" target="_blank"><img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/twitter.png" alt="Twitter" title="Twitter" width="24" height="24"/></a>
+                <a href="https://ae-accessories-exclusive-gmbh.business.site" title="Google+" target="_blank"><img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/googleplus.png" alt="Google+" title="Google+" width="24" height="24"/></a>
+                <a href="https://www.youtube.com/channel/UCpcNz7V9WjzhxHrgcvkOPEA/videos" title="YouTube" target="_blank"><img src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/accessories-exclusive-src/img/youtube.png" alt="YouTube" title="YouTube" width="24" height="24"/></a>
+            </div>
+        
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</footer>
