@@ -1392,6 +1392,12 @@ h1.title, h1.title span {
     margin-bottom: 0px;
 }
 
+/** CHECKOUT **/
+
+.cmp .form-control {
+    padding: 19px 9px;
+}
+
 
 /** icon font classes **/
 
