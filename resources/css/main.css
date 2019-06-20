@@ -192,6 +192,14 @@ header .col-md-4 .header-item-wrapper:first-of-type{
   line-height: 150%;
 }
 
+.btn-danger *{
+  color: white;
+}
+
+.btn-danger i{
+  margin-right: 0px;
+}
+
 span#warenkorb-qty {
     position: absolute;
     top: -8px;
