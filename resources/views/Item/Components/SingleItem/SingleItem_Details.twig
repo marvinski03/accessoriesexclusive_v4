@@ -105,6 +105,17 @@
 
     </div>
 
+    <div class="ae-delivery-notice">
+        <div class="delivery-icon left">
+            <i clasS="ae-icon-truck"></i>
+        </div>
+        <div class="delivery-txt left">
+            <span><strong>Versandkostenfreie Lieferung</strong> {% if variationTotalPrice < 20 %}ab 20 &euro; Bestellwert innerhalb DE{% else %}innerhalb Deutschlands{% endif %}.</span>
+            <span class="versandfertig" data-plenty="availabilityText">$_availabilityText</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+
     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
         <div class="row">
             <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>

@@ -769,6 +769,30 @@ span.border-box-txt-bottom {
     box-shadow: 0px 0px 50px rgba(0,0,0,0.1);
     border: none;
 }
+.delivery-icon{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.delivery-icon i{
+  color:black;
+  font-size: 25px;
+}
+
+.delivery-txt.left {
+    width: calc(100% - 40px);
+}
+
+.delivery-txt span {
+    display: block;
+    line-height: 16px;
+}
+
+.delivery-txt strong{
+  color: #37ac0e;
+}
+
 
 input[type="button"], a.btn.btn-primary,.btn.btn-primary, .PlentyWebshopButton{
     background: #5d5d5d !important;
