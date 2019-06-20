@@ -2,9 +2,6 @@
 
 namespace AccessoriesExclusive\Providers;
 
-use Ceres\Caching\NavigationCacheSettings;
-use Ceres\Caching\SideNavigationCacheSettings;
-use IO\Services\ContentCaching\Services\Container;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
@@ -29,15 +26,11 @@ class AccessoriesExclusiveServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
-
         $enabledOverrides = explode(", ", $config->get("AccessoriesExclusive.templates.override"));
 
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
-            pluginApp(Container::class)->register('AccessoriesExclusive::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
-            pluginApp(Container::class)->register('AccessoriesExclusive::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
-
             $partial->set('head', 'Ceres::PageDesign.Partials.Head');
             $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
             $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
@@ -116,7 +109,7 @@ class AccessoriesExclusiveServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
             {
-                $container->setTemplate('AccessoriesExclusive::Checkout.Checkout');
+                $container->setTemplate('AccessoriesExclusive::Checkout.CheckoutView');
                 return false;
             }, self::PRIORITY);
         }
@@ -182,7 +175,7 @@ class AccessoriesExclusiveServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.my-account', function (TemplateContainer $container)
             {
-                $container->setTemplate('AccessoriesExclusive::MyAccount.MyAccount');
+                $container->setTemplate('AccessoriesExclusive::MyAccount.MyAccountView');
                 return false;
             }, self::PRIORITY);
         }
@@ -319,61 +312,51 @@ class AccessoriesExclusiveServiceProvider extends ServiceProvider
             }, self::PRIORITY);
         }
 
-        $enabledResultFields = explode(", ", $config->get("AccessoriesExclusive.result_fields.override"));
+        $enabledResultFields = [];
 
-        // Override auto complete list item result fields
-        if (in_array("auto_complete_list_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+        if(!empty($config->get("AccessoriesExclusive.result_fields.override")))
         {
-
-          $dispatcher->listen( 'IO.ResultFields.AutoCompleteListItem', function(ResultFieldTemplate $templateContainer)
-          {
-              $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_AUTOCOMPLETE_ITEM_LIST, 'AccessoriesExclusive::ResultFields.AutoCompleteListItem');
-              return false;
-          });
+            $enabledResultFields = explode(", ", $config->get("AccessoriesExclusive.result_fields.override"));
         }
 
-        // Override basket item result fields
-        if (in_array("basket_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+        if(!empty($enabledResultFields))
         {
+            $dispatcher->listen( 'IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) use ($enabledResultFields)
+            {
+                $templatesToOverride = [];
+                
+                // Override list item result fields
+                if (in_array("list_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+                {
+                    $templatesToOverride[ResultFieldTemplate::TEMPLATE_LIST_ITEM] = 'AccessoriesExclusive::ResultFields.ListItem';
+                }
+                
+                // Override single item view result fields
+                if (in_array("single_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+                {
+                    $templatesToOverride[ResultFieldTemplate::TEMPLATE_SINGLE_ITEM] = 'AccessoriesExclusive::ResultFields.SingleItem';
+                }
+                
+                // Override basket item result fields
+                if (in_array("basket_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+                {
+                    $templatesToOverride[ResultFieldTemplate::TEMPLATE_BASKET_ITEM] = 'AccessoriesExclusive::ResultFields.BasketItem';
+                }
 
-          $dispatcher->listen( 'IO.ResultFields.BasketItem', function(ResultFieldTemplate $templateContainer)
-          {
-              $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_BASKET_ITEM, 'AccessoriesExclusive::ResultFields.BasketItem');
-              return false;
-          });
-        }
+                // Override auto complete list item result fields
+                if (in_array("auto_complete_list_item", $enabledResultFields) || in_array("all", $enabledResultFields))
+                {
+                    $templatesToOverride[ResultFieldTemplate::TEMPLATE_AUTOCOMPLETE_ITEM_LIST] = 'AccessoriesExclusive::ResultFields.AutoCompleteListItem';
+                }
+                
+                // Override category tree result fields
+                if (in_array("category_tree", $enabledResultFields) || in_array("all", $enabledResultFields))
+                {
+                    $templatesToOverride[ResultFieldTemplate::TEMPLATE_CATEGORY_TREE] = 'AccessoriesExclusive::ResultFields.CategoryTree';
+                }
 
-        // Override category tree result fields
-        if (in_array("category_tree", $enabledResultFields) || in_array("all", $enabledResultFields))
-        {
-
-          $dispatcher->listen( 'IO.ResultFields.CategoryTree', function(ResultFieldTemplate $templateContainer)
-          {
-              $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_CATEGORY_TREE, 'AccessoriesExclusive::ResultFields.CategoryTree');
-              return false;
-          });
-        }
-
-        // Override list item result fields
-        if (in_array("list_item", $enabledResultFields) || in_array("all", $enabledResultFields))
-        {
-
-          $dispatcher->listen( 'IO.ResultFields.ListItem', function(ResultFieldTemplate $templateContainer)
-          {
-              $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM, 'AccessoriesExclusive::ResultFields.ListItem');
-              return false;
-          });
-        }
-
-        // Override single item view result fields
-        if (in_array("single_item", $enabledResultFields) || in_array("all", $enabledResultFields))
-        {
-
-          $dispatcher->listen( 'IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
-          {
-              $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_SINGLE_ITEM, 'AccessoriesExclusive::ResultFields.SingleItem');
-              return false;
-          });
+                $templateContainer->setTemplates($templatesToOverride);
+            }, self::PRIORITY);
         }
     }
 }
