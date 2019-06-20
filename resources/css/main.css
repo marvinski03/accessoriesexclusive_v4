@@ -285,6 +285,10 @@ input.search-input{
     flex: 0 0 calc(100% - 82px) !important;
 }
 
+.page-search div#filterCollapse {
+    display: none !important;
+}
+
 .activeSearch.scroll-header input.search-input {
     flex: 0 0 calc(100% - 214px) !important;
 }
