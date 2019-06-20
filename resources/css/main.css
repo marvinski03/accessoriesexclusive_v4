@@ -262,8 +262,11 @@ span#warenkorb-qty {
     flex-direction: inherit !important;
 }
 
-body.activeSearch .search-box-inner{
-	display: block;
+.activeSearch div#searchBox {
+    display: block;
+    background: none !important;
+    background-color: none !important;
+    top: 156px;
 }
 
 .btn>.fa {

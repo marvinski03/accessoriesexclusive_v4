@@ -23,6 +23,8 @@ jQuery(document).ready(function() {
 		jQuery("#flAutocompleteInputText").focus();
 	});
 
+	jQuery(".search-box-shadow-frame input[type='search']").attr("placeholder","Bitte Suchbegriff eingeben...");
+
 	/*jQuery(".variation-select").each(function(){
 		var curselect = jQuery(this).find("select.custom-select").children("option:selected").text();
 		if(curselect == "Bitte wählen"){
