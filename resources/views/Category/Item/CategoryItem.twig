@@ -1,10 +1,7 @@
 {% extends getPartial('page-design') %}
-{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 
-{% set categoryDescriptionBottom = ceresConfig.item.showCategoryDescriptionBottom %}
-{% set categoryDescriptionTop = ceresConfig.item.showCategoryDescriptionTop %}
-{% set decimalCount = ceresConfig.item.storeSpecial %}
 {% set overrideSearchFilters = LayoutContainer.show("Ceres::Search.Filter", facets ) %}
 
 {% block PageBody %}
