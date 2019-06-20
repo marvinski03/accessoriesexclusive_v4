@@ -262,7 +262,7 @@ span#warenkorb-qty {
     flex-direction: inherit !important;
 }
 
-header.activeSearch .search-box-inner{
+body.activeSearch .search-box-inner{
 	display: block;
 }
 
@@ -320,9 +320,9 @@ cursor: pointer;
   font-size: 20px;
 }
 
-header.activeSearch #search-toggle .ae-icon-magnifier{display: none;}
-header.activeSearch #search-toggle .ae-icon-cross-circle{display: inline;}
-header.activeSearch .content_search_form{display: block;}
+body.activeSearch #search-toggle .ae-icon-magnifier{display: none;}
+body.activeSearch #search-toggle .ae-icon-cross-circle{display: inline;}
+body.activeSearch .content_search_form{display: block;}
 
 
 /** SCROLL HEADER **/

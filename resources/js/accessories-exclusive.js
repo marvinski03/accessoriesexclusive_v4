@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
 
 
 	jQuery("#search-toggle").click(function(){
-		jQuery("header").toggleClass("activeSearch");
+		jQuery("body").toggleClass("activeSearch");
 		jQuery("#flAutocompleteInputText").focus();
 	});
 
