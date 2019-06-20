@@ -1171,6 +1171,32 @@ a.btn.btn-link.filter-toggle {
     margin-bottom: 10px !important;
 }
 
+.card .form-check {
+    padding-left: 0px;
+}
+
+.filter-badge {
+    background: black;
+    color: white;
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 18px;
+}
+
+label.form-check-label {
+    cursor: pointer;
+}
+
+label.form-check-label:hover {
+    font-weight: bold;
+    color: black;
+}
+
 div#filterCollapse > div {
     padding: 0px !important;
 }
