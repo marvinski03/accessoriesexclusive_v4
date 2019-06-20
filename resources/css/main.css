@@ -137,7 +137,49 @@ header#page-header {
 	#ae-top-bar .top-bar-container {
 		display:none;
 	}
-	
+
+  ul.mainmenu {
+      display: none !important;
+  }
+
+  .header-content .txt-left,
+  .header-content .txt-right{
+    display: none;
+  }
+
+  .container.header-content {
+      padding: 20px !important;
+      max-width: 100% !important;
+  }
+
+  .col-md-4.col-xs-6.txt-center.logo-wrapper {
+      text-align: left;
+      max-width: 190px;
+  }
+
+  .col-xs-6.hidden-md.hidden-lg.mobile-menu {
+      width: 100% !IMPORTANT;
+      max-width: 100% !IMPORTANT;
+      flex: 0 0 100%;
+  }
+
+  button#btnMainMenuToggler {
+      top: -18px !important;
+      font-size: 29px !important;
+  }
+
+  #mainNavbarCollapsable ul.breadcrumb {
+      display: none !important;
+  }
+
+  div#search-toggle {
+        display: none;
+  }
+
+  nav.navbar{
+    border-top: none !important;
+  }
+  	
 }
 
 
