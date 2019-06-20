@@ -217,7 +217,7 @@ span#warenkorb-qty {
       color: #5d5d5d;
   }
 
-  body.scroll-header header {
+  body.scroll-header header#page-header {
     position: fixed;
     z-index: 999;
     background: white;
@@ -225,7 +225,7 @@ span#warenkorb-qty {
     top: -125px;
   }
 
-  body.scroll-header header .scroll-down-logo{
+  body.scroll-header header#page-header .scroll-down-logo{
     display: inline-block;
     float: left;
     margin-top: 5px;
