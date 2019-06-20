@@ -1135,6 +1135,10 @@ ul.footerList {
   background: none !important;
 }
 
+.list-controls #filterCollapse .page-content{
+  background: white !important;
+}
+
 .customHeaderBox {
     background: #f6f6f6;
     text-align: center;
