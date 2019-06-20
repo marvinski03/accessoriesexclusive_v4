@@ -179,7 +179,20 @@ header#page-header {
   nav.navbar{
     border-top: none !important;
   }
+
+  .mobile-navigation .breadcrumb-item+.breadcrumb-item::before {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
   	
+}
+
+.mobile-navigation.open {
+    background: white !important;
+}
+
+.mobile-navigation ul.breadcrumb {
+    background: #fdfcfc;
 }
 
 
