@@ -3,7 +3,7 @@
         {{ component( "Ceres::ItemList.Components.Filter.ItemFilter") }}
         {{ component( "Ceres::ItemList.Components.Filter.ItemFilterPrice") }}
 
-        <a class="btn btn-link filter-toggle" data-toggle="collapse" href="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse" @click="toggleOpeningState(); toggleOpeningState(); getFilterItems();">
+        <a class="btn btn-link filter-toggle" data-toggle="collapse" href="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse" onclick="getFilterItems()">
             <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
         </a>
 
@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 text-right">
+                    <div class="col-12 margin-bottom-btn-primary">
                         <button type="button" class="btn btn-primary" onclick="getFilterItems()" :class="{ 'disabled': isInitialFacetSelectionActive }" v-if="!isInitialFacetSelectionActive">
                             <i :class="{ 'fa-times': isInitialFacetSelectionActive, 'fa-check': !isInitialFacetSelectionActive }" class="fa" aria-hidden="true"></i>
                             <span v-if="isInitialFacetSelectionActive">{{ trans("Ceres::Template.itemClose") }}&nbsp;</span>

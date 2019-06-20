@@ -1188,6 +1188,10 @@ a.btn.btn-link.filter-toggle {
     line-height: 18px;
 }
 
+.margin-bottom-btn-primary{
+  margin-bottom: 30px;
+}
+
 label.form-check-label {
     cursor: pointer;
 }
