@@ -1135,6 +1135,26 @@ ul.footerList {
   background: none !important;
 }
 
+div#filterCollapse {
+    display: block !important;
+}
+
+a.btn.btn-link.filter-toggle.collapsed {
+    display: none;
+}
+
+.card-columns {
+    display: block !important;
+    column-count: 1;
+    -webkit-column-count: 1;
+    column-gap: 0px !important;
+    -webkit-column-gap: 0px !important;
+}
+
+.card {
+    border: none;
+}
+
 .list-controls #filterCollapse .page-content{
   background: white !important;
 }
