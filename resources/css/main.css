@@ -181,9 +181,25 @@ header#page-header {
   }
 
   .mobile-navigation .breadcrumb-item+.breadcrumb-item::before {
-    padding-right: .5rem;
-    padding-left: .5rem;
-}
+      padding-right: .5rem;
+      padding-left: .5rem;
+  }
+
+  .space-to-slider {
+      margin-top: 25px;
+  }
+
+  .btn-outline-primary:hover *{
+    color: white !important;
+  }
+
+  div#newsletter form * {
+      width: 100% !important;
+  }
+
+  footer {
+      padding: 20px 0px;
+  }
   	
 }
 
