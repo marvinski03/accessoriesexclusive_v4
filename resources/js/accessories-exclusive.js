@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 		jQuery("#flAutocompleteInputText").focus();
 	});
 
-	jQuery(".variation-select").each(function(){
+	/*jQuery(".variation-select").each(function(){
 		var curselect = jQuery(this).find("select.custom-select").children("option:selected").text();
 		if(curselect == "Bitte wählen"){
 			jQuery(this).find("select.custom-select option:eq(1)").prop('selected', true);
@@ -35,6 +35,6 @@ jQuery(document).ready(function() {
 			jQuery(this).click();
 			jQuery(this).find("select.custom-select option:eq(1)").onClick();
 		}
-	});
+	});*/
 
 });
