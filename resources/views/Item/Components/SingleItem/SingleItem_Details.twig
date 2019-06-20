@@ -111,7 +111,7 @@
         </div>
         <div class="delivery-txt left">
             <span><strong>Versandkostenfreie Lieferung</strong> {% if variationTotalPrice < 20 %}ab 20 &euro; Bestellwert innerhalb DE{% else %}innerhalb Deutschlands{% endif %}.</span>
-            <span class="versandfertig" data-plenty="availabilityText">$_availabilityText</span>
+            <span class="versandfertig" data-plenty="availabilityText">${ currentVariation.variation.availability.names.name }</span>
         </div>
         <div class="clear"></div>
     </div>
