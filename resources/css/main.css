@@ -741,6 +741,21 @@ span.border-box-txt-bottom {
   width: 100%;
 } 
 
+.single-pro-c {
+    margin-bottom: 100px;
+}
+
+.item-lists hr{
+  display: none;
+}
+
+.tab-content {
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    padding: 1px 10px 0px 20px;
+}
+
 .filterSubnavigationPanel div.h3{
   text-align: left;
   font-size: 18px;

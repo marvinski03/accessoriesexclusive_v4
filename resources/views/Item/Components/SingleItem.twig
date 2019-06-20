@@ -7,7 +7,7 @@
 <script type="x/template" id="vue-single-item">
     <div>
         <div class="single container-max page-content">
-            <div class="row position-relative">
+            <div class="row position-relative single-pro-c">
                 <div class="col-md-7">
                     <slot name="image-carousel"></slot>
                     {% include "Ceres::Item.Components.SingleItem.SingleItem_InformationTable" %}
@@ -18,7 +18,9 @@
                 </div>
             </div>
 
-            <slot name="item-list-container"></slot>
+            <div class="item-lists">
+                <slot name="item-list-container"></slot>
+            </div>
             <slot name="feedback-container"></slot>
         </div>
     </div>
