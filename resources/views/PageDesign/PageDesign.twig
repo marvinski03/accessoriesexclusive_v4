@@ -381,12 +381,6 @@
             });
         });
 
-        {% if pageType == 'tpl.category.item' or pageType == 'tpl.search' %}
-		    	function getFilterItems() {
-		        	window.ceresStore.dispatch("loadItemList");
-		    	}
-		{% endif %}
-
 
     })(jQuery);
 </script>
