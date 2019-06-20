@@ -241,13 +241,6 @@
         });
     {% endif %}
 
-    {% if pageType == 'tpl.category.item' or pageType == 'tpl.search' %}
-	    	function getFilterItems() {
-	        	window.ceresStore.dispatch("loadItemList");
-	    	}
-	{% endif %}
-
-
     (function($) {
 
         var vueApp = document.getElementById('vue-app');
@@ -387,6 +380,12 @@
                 window.dispatchEvent(new Event('resize'));
             });
         });
+
+        {% if pageType == 'tpl.category.item' or pageType == 'tpl.search' %}
+		    	function getFilterItems() {
+		        	window.ceresStore.dispatch("loadItemList");
+		    	}
+		{% endif %}
 
 
     })(jQuery);
