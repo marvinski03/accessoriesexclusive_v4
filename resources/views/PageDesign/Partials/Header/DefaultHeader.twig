@@ -118,7 +118,6 @@
     <div class="row">
         <div id="searchBox" class="cmp cmp-search-box">
 
-                {% if searchStyle == "permanent" %}
                     {{ Twig.if("overrideSearchBar | trim is empty") }}
                         <div class="always-visible-search">
                             <item-search template="#vue-item-search"
@@ -137,7 +136,6 @@
                     {{ Twig.else() }}
                         {{ Twig.print("overrideSearchBar | raw") }}
                     {{ Twig.endif() }}
-                {% endif %}
         </div>
 
         {% if enableCurrencySelect == "true" %}
