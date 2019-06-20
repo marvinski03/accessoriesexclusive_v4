@@ -271,6 +271,14 @@ div#searchBox {
     background: none !important;
     background-color: none !important;
     top: 156px;
+    position: absolute;
+}
+
+.activeSearch.scroll-header div#searchBox {
+    top: -1px;
+    position: fixed;
+    z-index: 9999;
+    left: 130px;
 }
 
 input.search-input{
