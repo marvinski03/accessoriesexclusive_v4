@@ -1065,6 +1065,7 @@ img#footer-logo{
 .social-media img,
 .app img{
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .social-media img:hover,
