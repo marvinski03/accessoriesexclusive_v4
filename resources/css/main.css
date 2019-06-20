@@ -1156,9 +1156,19 @@ a.btn.btn-link.filter-toggle {
     margin-bottom: 40px !important;
 }
 
+.card .input-group.col-lg-6.pb-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 0px !important;
+    padding-bottom: 10px !important;
+}
+
 .card .h3 {
     text-align: left;
     font-size: 18px;
+    margin-bottom: 10px !important;
 }
 
 div#filterCollapse > div {
