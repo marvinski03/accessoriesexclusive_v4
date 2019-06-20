@@ -1155,6 +1155,15 @@ a.btn.btn-link.filter-toggle.collapsed {
     border: none;
 }
 
+.card .h3 {
+    text-align: left;
+    font-size: 18px;
+}
+
+div#filterCollapse > div {
+    padding: 0px !important;
+}
+
 .list-controls #filterCollapse .page-content{
   background: white !important;
 }
