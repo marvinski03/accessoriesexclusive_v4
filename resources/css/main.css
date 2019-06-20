@@ -196,7 +196,8 @@ header .col-md-4 .header-item-wrapper:first-of-type{
   color: white;
 }
 
-.btn-danger i{
+.btn-danger i,
+.item-edit .btn i{
   margin-right: 0px;
 }
 
