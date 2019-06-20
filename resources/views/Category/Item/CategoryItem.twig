@@ -156,7 +156,7 @@
 
         <div class="row">
 
-            {% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}
+            
                 <div class="col-3 hidden-md-down">
 
                 {% if overrideSearchFilters | trim is empty %}
@@ -179,9 +179,9 @@
                     {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
                 </div>
 
-            {% endif %}
+         
 
-            <div class="col-12 col-lg-{% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}9{% else %}12{% endif %}">
+            <div class="col-12 col-lg-9">
                 <ul class="product-list row grid">
                     {% for item in itemList %}
                         <li class="col-12 col-sm-6 col-md-4 col-lg-{% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}4{% else %}3{% endif %}">
