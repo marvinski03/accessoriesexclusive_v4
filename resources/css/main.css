@@ -285,6 +285,10 @@ input.search-input{
     flex: 0 0 calc(100% - 82px) !important;
 }
 
+.activeSearch.scroll-header input.search-input {
+    flex: 0 0 calc(100% - 214px) !important;
+}
+
 .search-box-shadow-frame {
     box-shadow: none !important;
 }
