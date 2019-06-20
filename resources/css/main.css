@@ -200,6 +200,21 @@ header#page-header {
   footer {
       padding: 20px 0px;
   }
+
+  div#ae-top-bar {
+    padding: 0px !important;
+    background: white !important;
+    
+  }
+
+  div#main-head {
+      border: none !important;
+  }
+
+  nav.navbar {
+      border: none !important;
+      background: none !important;
+  }
   	
 }
 
