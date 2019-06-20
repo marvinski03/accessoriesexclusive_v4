@@ -1139,7 +1139,7 @@ div#filterCollapse {
     display: block !important;
 }
 
-a.btn.btn-link.filter-toggle.collapsed {
+a.btn.btn-link.filter-toggle {
     display: none;
 }
 
@@ -1153,6 +1153,7 @@ a.btn.btn-link.filter-toggle.collapsed {
 
 .card {
     border: none;
+    margin-bottom: 40px !important;
 }
 
 .card .h3 {
