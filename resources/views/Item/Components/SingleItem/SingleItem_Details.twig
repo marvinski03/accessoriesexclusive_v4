@@ -1,7 +1,4 @@
 <div v-stick-in-parent>
-    <div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
-        ${ currentVariation.item.manufacturer.externalName }
-    </div>
 
     <h1 class="h2 title">
         <span>
@@ -16,6 +13,23 @@
     <hr>
 
     <div class="mb-5">
+        <table id="artikeldetails-ae">
+            <tr>
+                <td>Artikel-ID</td>
+                <td>${ currentVariation.item.id }</td>
+            </tr>
+            <tr>
+                <td>Hersteller</td>
+                <td>${ currentVariation.item.manufacturer.externalName }</td>
+            </tr>
+            <tr>
+                <td>Inhalt</td>
+                <td>{{ trans("Ceres::Template.singleItemContent") }}
+                <span>${ currentVariation.unit.content | numberFormat }</span>
+                <span>${ currentVariation.unit.names.name }</span></td>
+            </tr>
+        </table>
+
         <span class="articlenumber small text-muted">
             <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
             <span>${ currentVariation.variation.number }</span>
@@ -59,11 +73,6 @@
 	    </span>
 
 	    <div class="base-price text-muted my-3" v-if="currentVariation.unit">
-	        <div>
-	            {{ trans("Ceres::Template.singleItemContent") }}
-	            <span>${ currentVariation.unit.content | numberFormat }</span>
-	            <span>${ currentVariation.unit.names.name }</span>
-	        </div>
 	        <div v-if="currentVariation.variation.mayShowUnitPrice">
 	            {{ trans("Ceres::Template.singleItemUnitPrice") }}
 	            <span class="base-price-value">
