@@ -710,6 +710,23 @@ span.border-box-txt-bottom {
     display: inline-block;
 }
 
+.category-lvl-border-boxes {
+    margin-top: 5px;
+}
+
+.category-lvl-border-boxes .border-box {
+    height: 200px;
+}
+
+.category-lvl-border-boxes .border-box-img {
+    margin-top: 10px;
+}
+
+.category-lvl-border-boxes .border-box-img img {
+    max-height: 118px;
+    max-width: 190px;
+}
+
 .title, h1,h2,h3,h4,h5,h6, div.h3{
   font-family: "Muli", sans-serif;
   color: black;
