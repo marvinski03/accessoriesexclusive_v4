@@ -193,10 +193,6 @@ header#page-header {
     color: white !important;
   }
 
-  div#newsletter form * {
-      width: 100% !important;
-  }
-
   footer {
       padding: 20px 0px;
   }
