@@ -1552,6 +1552,11 @@ h1.title, h1.title span {
     margin-bottom: -35px;
 }
 
+.basket-preview-content a.btn.btn-outline-primary.btn-block.basketBtn {
+    height: 40px;
+    line-height: 25px;
+}
+
 #add-item-to-basket-overlay .modal-footer {
     margin-bottom: -56px;
 }
