@@ -1528,6 +1528,54 @@ h1.title, h1.title span {
 }
 
 
+/** Amazon Pay & PP Plus Btns **/
+
+.basket-preview-footer.row {
+    margin-top: 10px !important;
+}
+
+.basket-preview-content .amzPayButton,
+.basket-preview-content #ppButton {
+    width: 40% !important;
+}
+
+.basket-preview-content .amzPayButton *,
+.basket-preview-content #ppButton * {
+    max-width: 100% !important;
+    height: auto;
+}
+
+.basket-preview-content  #ppButton {
+    position: relative;
+    right: calc(-40% - 7px);
+    top: -42px;
+    margin-bottom: -35px;
+}
+
+#add-item-to-basket-overlay .modal-footer {
+    margin-bottom: -56px;
+}
+
+#add-item-to-basket-overlay .amzPayButton,
+#add-item-to-basket-overlay #ppButton{
+    width: 135px!important;
+    margin: 10px !important;
+}
+
+#add-item-to-basket-overlay  #ppButton {
+    position: relative;
+    top: -50px;
+    left: 150px;
+    margin-bottom: -35px !important;
+    margin-left: 0px !important;
+}
+
+#add-item-to-basket-overlay .btn.btn-medium {
+    min-width: 100px !important;
+    height: 40px;
+    line-height: 25px;
+}
+
 /** NL2GO **/
 
 div#nl2go-form form > div > div:nth-of-type(1) label, 
