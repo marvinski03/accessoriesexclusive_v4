@@ -477,6 +477,11 @@ body.activeSearch .content_search_form{display: block;}
     display: none !important;
 }
 
+li.fl-item-color-tiles-list-item {
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
 nav.navbar {
     background: white;
     text-align: left;
