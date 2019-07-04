@@ -473,6 +473,9 @@ body.activeSearch .content_search_form{display: block;}
 
 /** NAV BAR **/
 
+#filterCollapse #button.btn.btn-primary.btn-medium-large {
+    display: none !important;
+}
 
 nav.navbar {
     background: white;
