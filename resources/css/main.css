@@ -208,6 +208,10 @@ header#page-header {
       margin-top: 25px;
   }
 
+  .space-to-slider .border-box{
+    margin-bottom: 37px;
+  }
+
   footer {
       padding: 20px 0px;
   }
