@@ -130,7 +130,7 @@
         <div class="list-controls mb-5">
             <div class="list-controls-inner">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="list-wrapper">
                             {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
 
@@ -139,20 +139,18 @@
 
                         </div>
                     </div>
+                    <div class="col-6">
+                    {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                        <div class="list-controls">
+                                {% include "Ceres::Category.Item.Partials.Pagination" %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
             {# TAGS #}
             <item-filter-tag-list></item-filter-tag-list>
         </div>
-
-        {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-            <div class="list-controls mb-5 row">
-                <div class="col-12">
-                    {% include "Ceres::Category.Item.Partials.Pagination" %}
-                </div>
-            </div>
-        {% endif %}
 
         <div class="row">
 
