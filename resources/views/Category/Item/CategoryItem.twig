@@ -130,7 +130,7 @@
         <div class="list-controls mb-5">
             <div class="list-controls-inner">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="list-wrapper">
                             {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
 
@@ -139,7 +139,7 @@
 
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
                             <div class="list-controls custom-top-pag">
                                     {% include "Ceres::Category.Item.Partials.Pagination" %}
