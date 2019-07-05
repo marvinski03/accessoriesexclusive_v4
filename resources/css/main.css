@@ -1017,8 +1017,14 @@ input[type="button"], a.btn.btn-primary,.btn.btn-primary, .PlentyWebshopButton{
 input[type="button"], a.btn.btn-primary i, a.btn.btn-primary span.glyphicon, a.btn.btn-primary span,.btn.btn-primary i, .btn.btn-primary span {
     color: White !important;
     text-shadow: none !important;
-    box-shadow: none !important;
-    
+    box-shadow: none !important;   
+}
+
+input[type="button"]:hover,
+a.btn.btn-primary:hover,
+.btn.btn-primary:hover,
+.PlentyWebshopButton:hover{
+  background: black;
 }
 
 a.name.block {
