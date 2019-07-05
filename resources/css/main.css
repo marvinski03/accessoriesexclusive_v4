@@ -88,10 +88,18 @@ header#page-header {
   right: 0px !important;
 }
 
-.mobile-menu a.toggle-basket-preview {
-    position: absolute;
-    right: 55px;
-    top: -29px;
+.mobile-menu a.toggle-basket-preview{
+  display: none;
+}
+
+@media (max-width: 992px){
+
+  .mobile-menu a.toggle-basket-preview {
+      display: block;
+      position: absolute;
+      right: 55px;
+      top: -29px;
+  }
 }
 
 
