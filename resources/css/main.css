@@ -1455,7 +1455,7 @@ label.form-check-label {
     cursor: pointer;
 }
 
-label.form-check-label:hover {
+.card label.form-check-label:hover {
     font-weight: bold;
     color: black;
 }
@@ -1580,6 +1580,25 @@ h1.title, h1.title span {
     line-height: 24px;
     margin-bottom: 0px;
 }
+
+/** CONTACT **/
+
+.row.cmp-contact {
+    font-size: 14px;
+}
+
+.cmp-contact .contact-card p.contact-address span:not(:nth-child(2)), .cmp-contact .contact-card p.contact-vat-number span:not(:nth-child(2)) {
+    margin-left: 24px;
+}
+
+.cmp-contact .contact-card i {
+    color: black !important;
+}
+
+.cmp-contact .contact-card p a:hover {
+    color: black !important;
+}
+
 
 /** CHECKOUT **/
 
