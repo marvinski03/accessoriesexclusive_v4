@@ -437,6 +437,21 @@ body.activeSearch #search-toggle .ae-icon-magnifier{display: none;}
 body.activeSearch #search-toggle .ae-icon-cross-circle{display: inline;}
 body.activeSearch .content_search_form{display: block;}
 
+h1#searchPageTitle {
+    margin-bottom: 40px;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+
+
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
 
 /** SCROLL HEADER **/
 
@@ -477,16 +492,6 @@ li.fl-item-color-tiles-list-item {
     margin-bottom: 0px !important;
     margin-top: 0px !important;
 }
-
-input[type="search"] {
-    -webkit-appearance: textfield;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-}
-
 
 .custom-top-pag {
     margin-top: 9px;
