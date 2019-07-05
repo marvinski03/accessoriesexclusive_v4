@@ -189,10 +189,6 @@ header#page-header {
       margin-top: 25px;
   }
 
-  .btn-outline-primary:hover *{
-    color: white !important;
-  }
-
   footer {
       padding: 20px 0px;
   }
@@ -1614,6 +1610,10 @@ h1.title, h1.title span {
     height: 40px;
     line-height: 25px;
 }
+
+  .btn-outline-primary:hover *{
+    color: white !important;
+  }
 
 #add-item-to-basket-overlay .modal-footer {
     margin-bottom: -56px;
