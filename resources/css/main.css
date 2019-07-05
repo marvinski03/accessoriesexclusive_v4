@@ -356,13 +356,6 @@ div#searchBox {
     position: absolute;
 }
 
-.activeSearch.scroll-header div#searchBox {
-    top: -1px;
-    position: fixed;
-    z-index: 9999;
-    left: 130px;
-}
-
 input.search-input{
     flex: 0 0 calc(100% - 31px) !important;
 }
@@ -394,10 +387,6 @@ input.search-input{
 
 .page-search div#filterCollapse {
     display: none !important;
-}
-
-.activeSearch.scroll-header input.search-input {
-    flex: 0 0 calc(100% - 176px) !important;
 }
 
 .search-box-shadow-frame {
