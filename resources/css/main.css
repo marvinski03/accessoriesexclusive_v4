@@ -473,13 +473,13 @@ body.activeSearch .content_search_form{display: block;}
 
 /** NAV BAR **/
 
-#filterCollapse #button.btn.btn-primary.btn-medium-large {
-    display: none !important;
-}
-
 li.fl-item-color-tiles-list-item {
     margin-bottom: 0px !important;
     margin-top: 0px !important;
+}
+
+.findologic-container button.btn.btn-primary.btn-medium-large[aria-controls='filterCollapse'] {
+    display: none !important;
 }
 
 nav.navbar {
@@ -550,6 +550,10 @@ li.ddown > ul > li > a {
     font-family: "Muli", sans-serif;
     font-size: 18px !important;
     font-weight: bold;
+}
+
+button.btn.btn-primary.btn-medium-large {
+    display: none !important;
 }
 
 
