@@ -478,6 +478,12 @@ li.fl-item-color-tiles-list-item {
     margin-top: 0px !important;
 }
 
+
+.custom-top-pag {
+    margin-top: 9px;
+    margin-right: 2px;
+}
+
 .findologic-container button.btn.btn-primary.btn-medium-large[aria-controls='filterCollapse'] {
     display: none !important;
 }
