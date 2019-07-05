@@ -84,6 +84,16 @@ header#page-header {
     position: inherit !important;
 }
 
+.navbar-toggler{
+  right: 0px !important;
+}
+
+.mobile-menu a.toggle-basket-preview {
+    position: absolute;
+    right: 55px;
+    top: -29px;
+}
+
 
 /* TOP BAR */
 
@@ -166,6 +176,7 @@ header#page-header {
   button#btnMainMenuToggler {
       top: -18px !important;
       font-size: 29px !important;
+      color: black;
   }
 
   #mainNavbarCollapsable ul.breadcrumb {

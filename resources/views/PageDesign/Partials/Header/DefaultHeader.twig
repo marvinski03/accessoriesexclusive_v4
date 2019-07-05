@@ -94,6 +94,13 @@
                         </a>
                     </div>
                     <div class="col-xs-6 hidden-md hidden-lg mobile-menu">
+
+                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
+                            <div class="header-item-wrapper">
+                                <span id="warenkorb-qty" class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+                                <i class="ae-icon-cart"></i><br>
+                            </div>
+                        </a>
                         <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler d-lg-none" type="button">
                              &#9776;
                         </button>
