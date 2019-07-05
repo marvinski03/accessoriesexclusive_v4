@@ -345,7 +345,7 @@ span#warenkorb-qty {
 }
 
 @media(max-width: 480px){
-  .list-item-carousel .owl-dots{
+  .owl-carousel .owl-dots{
     display: none;
   }
 }
