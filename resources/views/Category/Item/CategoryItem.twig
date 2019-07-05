@@ -140,11 +140,12 @@
                         </div>
                     </div>
                     <div class="col-6">
-                    {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                        <div class="list-controls">
-                                {% include "Ceres::Category.Item.Partials.Pagination" %}
-                        </div>
-                    {% endif %}
+                        {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                            <div class="list-controls">
+                                    {% include "Ceres::Category.Item.Partials.Pagination" %}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
