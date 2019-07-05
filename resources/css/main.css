@@ -212,6 +212,10 @@ header#page-header {
     margin-bottom: 37px;
   }
 
+    div[id^="tsbadgeResponsiveTop"] * {
+    font-family: inherit;
+}
+
   footer {
       padding: 20px 0px;
   }
