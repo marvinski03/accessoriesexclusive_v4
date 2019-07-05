@@ -378,11 +378,11 @@ input.search-input{
     color: #5d5d5d;
 }
 
-.cmp-search-box .search-submit {
+.cmp-search-box .search-submit:hover {
     background: black;
 }
 
-.cmp-search-box .search-submit * {
+.cmp-search-box .search-submit:hover * {
     color: white;
 }
 
