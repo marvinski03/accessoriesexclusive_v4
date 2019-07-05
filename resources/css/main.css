@@ -344,6 +344,12 @@ span#warenkorb-qty {
   }
 }
 
+@media(max-width: 480px){
+  .list-item-carousel .owl-dots{
+    display: none;
+  }
+}
+
 .scroll-logo-float-row, .scroll-logo-float-row-parent {
     -webkit-box-orient: inherit;
     -webkit-box-direction: inherit !important;
