@@ -352,6 +352,12 @@ div#searchBox {
     position: absolute;
 }
 
+.activeSearch.scroll-header div#searchBox {
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+}
+
 input.search-input{
     flex: 0 0 calc(100% - 31px) !important;
 }
