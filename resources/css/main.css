@@ -352,7 +352,7 @@ div#searchBox {
     display: block;
     background: none !important;
     background-color: none !important;
-    top: 156px;
+    top: 158px;
     position: absolute;
 }
 
@@ -364,7 +364,32 @@ div#searchBox {
 }
 
 input.search-input{
-    flex: 0 0 calc(100% - 82px) !important;
+    flex: 0 0 calc(100% - 31px) !important;
+}
+
+.cmp-search-box .search-submit {
+    cursor: pointer;
+    background: #e9ecef;
+    height: 40px;
+    line-height: 29px;
+}
+
+.cmp-search-box .search-submit * {
+    color: #5d5d5d;
+}
+
+.cmp-search-box .search-submit {
+    background: black;
+}
+
+.cmp-search-box .search-submit * {
+    color: white;
+}
+
+@media (min-width: 992px){
+  div:not(.top-bar)>.page-header>div>.cmp-search-box .search-box-inner {
+      margin: 0px auto !important ;
+  }
 }
 
 .page-search div#filterCollapse {
@@ -372,7 +397,7 @@ input.search-input{
 }
 
 .activeSearch.scroll-header input.search-input {
-    flex: 0 0 calc(100% - 214px) !important;
+    flex: 0 0 calc(100% - 176px) !important;
 }
 
 .search-box-shadow-frame {
@@ -398,6 +423,12 @@ ul.breadcrumb * {
     color: #5d5d5d;
 }
 
+div#searchBox {
+    width: 100%;
+    max-width: 1165px !important;
+    margin: 0 auto;
+    transform: translateX(-30px);
+}
 
 #search-toggle{
 position: absolute;
