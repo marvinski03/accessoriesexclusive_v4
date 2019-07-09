@@ -635,6 +635,10 @@ button.btn.btn-primary.btn-medium-large {
     display: none !important;
 }
 
+.wrapper.wrapper-right {
+    z-index: 2147483646!important;
+}
+
 
 /** CONTENT **/
 
