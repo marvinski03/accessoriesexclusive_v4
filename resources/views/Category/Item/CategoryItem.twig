@@ -156,7 +156,9 @@
         <div class="row">
 
             
-                <div class="col-3 hidden-md-down">
+             <div class="col-3 hidden-md-down">
+
+                Level: {{ category.level }}
 
                 {% if overrideSearchFilters | trim is empty %}
                         <item-filter-list :facet-data="{{ facets | json_encode }}">
