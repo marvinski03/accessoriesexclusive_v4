@@ -553,7 +553,7 @@ li.fl-item-color-tiles-list-item {
 }
 
 #single-carousel .owl-item img.owl-lazy {
-    width: calc(100% - 70px) !important;
+    width: calc(100% - 90px) !important;
 }
 
 .custom-top-pag {
