@@ -617,6 +617,10 @@ li.ddown > ul > li > a {
 
 /** SIDEBAR **/
 
+.sidebar-categories {
+    margin-bottom: 40px;
+}
+
 .sidebar-categories .category-title {
     background: none !important;
     padding: 0px !important;
