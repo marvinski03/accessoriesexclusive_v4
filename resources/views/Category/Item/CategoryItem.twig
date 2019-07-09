@@ -158,8 +158,6 @@
             
              <div class="col-3 hidden-md-down">
 
-                Level: {{ category.level }}
-
                 {% if overrideSearchFilters | trim is empty %}
                         <item-filter-list :facet-data="{{ facets | json_encode }}">
                             {% if facets | length > 0 %}
@@ -172,13 +170,27 @@
                         {{ overrideSearchFilters }}
                     {% endif %}
 
-                    <div class="sidebar-categories">
-                        <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
-                        {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
-                    </div>
+                    {% if category.level == 1 %}
 
-                    {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
-                </div>
+                        {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
+
+                         <div class="sidebar-categories">
+                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+                        </div>
+
+                        
+                    {% else %}
+
+                        <div class="sidebar-categories">
+                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+                        </div>
+
+                        {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
+                        
+                    {% endif %}
+            </div>
 
          
 
