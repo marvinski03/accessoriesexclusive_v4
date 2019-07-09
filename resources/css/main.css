@@ -548,6 +548,14 @@ li.fl-item-color-tiles-list-item {
     margin-top: 0px !important;
 }
 
+#single-carousel .owl-item{
+  text-align: center;
+}
+
+#single-carousel .owl-item img.owl-lazy {
+    width: calc(100% - 70px) !important;
+}
+
 .custom-top-pag {
     margin-top: 9px;
     margin-right: 7px;
