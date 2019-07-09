@@ -646,6 +646,10 @@ div#page-body {
     padding-top: 30px;
 }
 
+#page-body img {
+    max-width: 100% !important;
+}
+
 .ae-slide-text{
   position: absolute;
   bottom: 20px;
