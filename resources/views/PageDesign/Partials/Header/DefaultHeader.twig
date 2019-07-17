@@ -132,10 +132,12 @@
                                          :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
                                 <div class="search-box-inner">
                                     <div class="search-box-shadow-frame">
-                                        <input type="search" class="search-input"/>
-                                        <button class="search-submit" type="submit">
-                                            <i class="fa fa-search sm-up"></i>
-                                        </button>
+                                        <form action="/search" method="get">
+                                            <input type="search" class="search-input" name="query"/>
+                                            <button class="search-submit" type="submit">
+                                                <i class="fa fa-search sm-up"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </item-search>
