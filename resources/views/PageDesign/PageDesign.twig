@@ -8,6 +8,7 @@
 {{ component( "Ceres::Basket.Components.AddItemToBasketOverlay" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 {{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
+{{ component( "Ceres::Customer.Components.Contact.AcceptPrivacyPolicyCheck") }}
 
 {# TODO: remove if shop builder pages can be rebuild by migrations #}
 {{ component( "Ceres::Containers.Components.LastSeenItemList" ) }}
@@ -21,6 +22,11 @@
 
 {% set currencyFormat = config("Ceres.currency.format") %}
 {% set defaultLanguage = services.webstoreConfig.getDefaultLanguage() %}
+
+{% if request.get('openBasketPreview') == 1 %}
+    {% set openBasketClass = "open-" ~ ceresConfig.basket.previewType %}
+{% endif %}
+
 
 {% spaceless %}
 <!DOCTYPE html>
@@ -191,7 +197,11 @@
         defaultLanguage: "{{ defaultLanguage }}",
         decimalSeparator: "{{ config("IO.format.separator_decimal") }}",
         urlTrailingSlash: {{ urls.appendTrailingSlash | json_encode }},
-        isShopBuilder: {{ isShopBuilder | default(false) | json_encode }}
+        isShopBuilder: {{ isShopBuilder | default(false) | json_encode }},
+        initialData: {
+            shippingCountries: {{ services.country.getActiveCountriesList() | filterFields(["id", "currLangName", "isoCode2", "states.id", "states.name"]) | json_encode | raw }},
+            shippingCountryId: {{ services.checkout.getShippingCountryId() | json_encode }}
+        }
     };
 </script>
 
