@@ -594,6 +594,17 @@ li.fl-item-color-tiles-list-item {
     border: none !important;
 }
 
+
+/* HIDE FINDOLOGIC @ SERPS **/
+
+body.page-search .findologic-filter-wrapper {
+    display: none;
+}
+
+body.page-search .list-controls-inner .list-controls.mb-5 {
+    display: none;
+}
+
 nav.navbar {
     background: white;
     text-align: left;
