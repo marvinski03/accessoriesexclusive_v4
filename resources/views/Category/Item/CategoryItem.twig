@@ -12,17 +12,17 @@
 
     <div class="categoriegrid page-content container-max">
 
-         <div class="row">
+            <div class="row">
                 <div class="customHeaderBox">
                     <div class="col-12">
                         
-                        <h1 class="h2 category-title try">
-                            {% if category.details[0].shortDescription %}
-                                {{ category.details[0].shortDescription | raw }}
-                            {% else %}
-                                {{ category.details[0].name }}
-                            {% endif %}
-                        </h1>
+                    	<h1 class="h2 category-title try">
+                    		{% if category.details[0].shortDescription %}
+                    			{{ category.details[0].shortDescription | raw }}
+                    		{% else %}
+                    			{{ category.details[0].name }}
+                    		{% endif %}
+                    	</h1>
                         
                         {% if ceresConfig.item.showCategoryDescription %}
                             <p>{{ category.details[0].description2 | raw }}</p>
@@ -32,8 +32,7 @@
                 </div>
             </div>
 
-
-             <!-- HERREN BOXEN -->
+            <!-- HERREN BOXEN -->
             {% if category.id == '29' %}
                 <div class="">
                     <div class="row category-lvl-border-boxes">
@@ -127,27 +126,25 @@
                 </div>
             {% endif %}
 
+
         <div class="list-controls mb-5">
             <div class="list-controls-inner">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-6">
                         <div class="list-wrapper">
                             {% include "Ceres::Category.Item.Partials.ItemSorting" with { 'sortingData': searchOptions.sorting, 'selectedSorting': itemSorting } %}
 
                             {% include "Ceres::Category.Item.Partials.ItemsPerPage" with { 'itemsPerPage': searchOptions.itemsPerPage, 'selectedValue': itemsPerPage } %}
 
-                            {% if overrideSearchFilters | trim is empty %}
-                                <item-filter-list :facet-data="{{ facets | json_encode }}">
-                                    {% if facets | length > 0 %}
-                                        <a class="btn btn-link filter-toggle" href="#filterCollapse">
-                                            <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
-                                        </a>
-                                    {% endif %}
-                                </item-filter-list>
-                            {% else %}
-                                {{ overrideSearchFilters }}
-                            {% endif %}
+
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+                            <div class="list-controls custom-top-pag">
+                                    {% include "Ceres::Category.Item.Partials.Pagination" %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -156,55 +153,78 @@
             <item-filter-tag-list></item-filter-tag-list>
         </div>
 
-        {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-            <div class="list-controls mb-5 row">
-                <div class="col-12">
-                    {% include "Ceres::Category.Item.Partials.Pagination" %}
-                </div>
-            </div>
-        {% endif %}
-
         <div class="row">
 
-            {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
-                <div class="col-3 hidden-md-down">
-                    <div class="sidebar-categories">
-                        <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
-                        {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
-                    </div>
+            
+             <div class="col-3 hidden-md-down">
 
-                    {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
-                </div>
+                    {% if category.level == 1 %}
 
-            {% endif %}
+                         <div class="sidebar-categories">
+                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+                        </div>
 
-            <div class="col-12 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}9{% else %}12{% endif %}">
-                {% if itemList is not empty %}
-                    <ul class="product-list row grid">
-                        {% for item in itemList %}
-                            <li class="col-12 col-sm-6 col-md-4 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}4{% else %}3{% endif %}">
-                                <category-item
-                                    item-data-ref="{{ item.data | json_data }}"
-                                    :decimal-count="{{ ceresConfig.item.storeSpecial }}">
-                                    <template #before-prices>{{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}</template>
-                                    <template #after-prices>{{ LayoutContainer.show("Ceres::CategoryItem.AfterPrices", item.data) }}</template>
-
-                                    <a href="{{ item.data | itemURL }}" class="small">
-                                        <i class="fa fa-image"></i>
-                                        <span>{{ item.data | itemName }}</span>
+                        {% if overrideSearchFilters | trim is empty %}
+                            <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                {% if facets | length > 0 %}
+                                    <a class="btn btn-link filter-toggle" href="#filterCollapse">
+                                        <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
                                     </a>
-                                </category-item>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+                                {% endif %}
+                            </item-filter-list>
+                        {% else %}
+                            {{ overrideSearchFilters }}
+                        {% endif %}
 
-                {% if category is not defined and itemList is empty %}
-                    <p class="h3 text-muted mb-5 text-center">{{ trans("Ceres::Template.itemSearchNoResults", {"searchString": searchString}) }}</p>
-                {% endif %}
+                        
+                    {% else %}
+
+                        {% if overrideSearchFilters | trim is empty %}
+                            <item-filter-list :facet-data="{{ facets | json_encode }}">
+                                {% if facets | length > 0 %}
+                                    <a class="btn btn-link filter-toggle" href="#filterCollapse">
+                                        <i class="fa fa-sliders default-float" aria-hidden="true"></i> {{ trans("Ceres::Template.itemFilter") }}
+                                    </a>
+                                {% endif %}
+                            </item-filter-list>
+                        {% else %}
+                            {{ overrideSearchFilters }}
+                        {% endif %}
+
+
+                        <div class="sidebar-categories">
+                            <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                            {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+                        </div>
+                       
+
+                    {% endif %}
+
+                     {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
+
             </div>
-        </div>
 
+         
+
+            <div class="col-12 col-lg-9">
+                <ul class="product-list row grid">
+                    {% for item in itemList %}
+                        <li class="col-12 col-sm-6 col-md-4 col-lg-{% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}4{% else %}3{% endif %}">
+                            <category-item
+                                :item-data="{{ item.data | json_encode }}"
+                                :decimal-count="{{ decimalCount }}">
+                                <template slot="BeforePrices">{{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}</template>
+                                <template slot="AfterPrices">{{ LayoutContainer.show("Ceres::CategoryItem.AfterPrices", item.data) }}</template>
+                            </category-item>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+
+        </div>
         {% if ceresConfig.pagination.position in ['bottom', 'top_bottom'] %}
             <div class="list-controls mb-5 row">
                 <div class="col-12">
@@ -212,22 +232,19 @@
                 </div>
             </div>
         {% endif %}
+    </div>
 
-        {% if category is defined %}
-            <div class="col-12">
-                {% if ceresConfig.item.showCategoryDescriptionBottom in ["description1", "both"] and category.details[0].description | trim is not empty %}
-                    <div class="category-description mb-3">{{ category.details[0].description | raw }}</div>
-                {% endif %}
-                {% if ceresConfig.item.showCategoryDescriptionBottom in ["description2", "both"] and category.details[0].description2 | trim is not empty %}
-                    <div class="category-description mb-3">{{ category.details[0].description2 | raw }}</div>
-                {% endif %}
-            </div>
-        {% endif %}
+    <div class="container further-infos">
+        <div class="row">
+     		{{ category.details[0].description | raw }}
+        </div>
     </div>
 
 {% endblock %}
 
 {% block PartialHead %}
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "{{ webstoreConfig.domainSsl }}","potentialAction":{"@type": "SearchAction","target": "{{ webstoreConfig.domainSsl }}/search?query={search_term}","query-input": "required name=search_term"}}</script>
+
     {% set canonicalUrl = services.url.getCanonicalURL() %}
     {% if currentPage - 1 > 0 %}
         <link rel="prev" href="{{ canonicalUrl ~ queryString({'page': currentPage - 1}) }}" />
@@ -237,13 +254,9 @@
         <link rel="next" href="{{ canonicalUrl ~ queryString({'page': currentPage + 1}) }}" />
     {% endif %}
 
-    {% if category is not defined %}
-      {% embed getPartial('page-metadata') %}
-              {% block title      trans("Ceres::Template.itemSearchResults") ~ " " ~ searchString %}
-              {% block robots     ceresConfig.meta.robotsSearchResult %}
-      {% endembed %}
-    {% else %}
-      {% embed getPartial('page-metadata') %}
-      {% endembed %}
-    {% endif %}
+    <title>{% if category.details[0].metaTitle %}{{ category.details[0].metaTitle }}{% else %}{{ category.details[0].name }}{% endif %} | {{ trans("Ceres::Template.headerCompanyName") }}</title>
+
+    <meta name="description" content="{{ category.details[0].metaDescription }}">
+    <meta name="keywords" content="{{ category.details[0].metaKeywords }}">
+    <meta name="robots" content="{% if forceNoIndex or (currentPage >= config("Ceres.pagination.noIndex") and config("Ceres.pagination.noIndex") != 0 )%}NOINDEX{% else %}{{ metaRobots }}{% endif %}">
 {% endblock %}
