@@ -1745,12 +1745,6 @@ h1.title, h1.title span {
     color: white !important;
   }
 
-@media(min-width: 580px){
-  #add-item-to-basket-overlay .modal-footer {
-      margin-bottom: -56px;
-  }
-}
-
 #add-item-to-basket-overlay .amzPayButton,
 #add-item-to-basket-overlay #ppButton{
     width: 135px!important;
