@@ -1625,6 +1625,10 @@ div#filterCollapse > div {
     margin-bottom: 13px;
 }
 
+.ae-buybox .col-12.col-sm-7.col-md-12.col-lg-10.my-3 {
+    padding-left: 0px !important;
+}
+
 .single span.price.h1, .single span.price.h1 * {
     color: black !important;
     font-weight: bold;
