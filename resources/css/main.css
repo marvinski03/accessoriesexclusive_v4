@@ -687,6 +687,15 @@ button.btn.btn-primary.btn-medium-large {
     z-index: 2147483646!important;
 }
 
+#CookiePlus .btn-primary {
+    background: #026814 !important;
+}
+
+
+#CookiePlus .btn-primary:hover {
+    background: #0f8023 !important;
+}
+
 
 /** CONTENT **/
 
