@@ -1397,8 +1397,12 @@ button.slick-next.slick-arrow:before{content: "\e93c";}
 footer{
     background: #f6f6f6;
     border-top: 1px solid #e5e5e5;
-    padding: 20px 0px 100px 0px;
+    padding: 20px 0px 0px 0px;
     margin-top: 150px;
+}
+
+#footer-shoptvote-badget{
+  margin-top: 20px;
 }
 
 footer, footer a {
