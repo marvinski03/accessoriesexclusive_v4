@@ -1405,6 +1405,10 @@ footer{
   margin-top: -35px;
 }
 
+.pagination{
+  justify-content: flex-end !important;
+}
+
 footer, footer a {
     color: #828282 !important;
 }
