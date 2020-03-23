@@ -557,7 +557,7 @@ input[type="search"]::-webkit-search-cancel-button {
     z-index: 9999;
     background: white;
     width: 100%;
-    top: -158px;
+    top: -193px;
   }
 
   body.scroll-header header#page-header .scroll-down-logo{
