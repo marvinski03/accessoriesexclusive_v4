@@ -111,7 +111,7 @@ header#page-header {
   }
 
   img.mobile-logo {
-    display: block;
+    display: block !important;
 }
 
 
