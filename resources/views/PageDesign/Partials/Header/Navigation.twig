@@ -4,8 +4,8 @@
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 {% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
 
-<nav class="navbar{% if useMegaMenu %} megamenu{%endif%}">
-    <div class="container-max">
+<nav class="navbar header-fw p-0 border-bottom{% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
+    <div class="container-max d-block">
         <div class="row scroll-logo-float-row-parent">
 
             <a href="/" class="hidden-sm hidden-xs scroll-logo-float-row">
