@@ -37,31 +37,30 @@
                     <div class="col-md-4 txt-left hidden-sm hidden-xs">
 
 
-                        <user-login-handler>
 
                         {% if services.customer.getContactId() > 0 %}
 
-                             <a class="nav-link" data-toggle="modal">
+                              <a href="{{ urls.myAccount }}">
+
                                 <div class="header-item-wrapper">
                                     <i class="ae-icon-user"></i><br>
                                     <span>Mein Konto</span>
-                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+                                    
                                 </div>
                             </a>
 
                         {% else %}
 
-                         <a class="nav-link" data-toggle="modal">
+                         <a data-toggle="modal" href="#login">
+
                                 <div class="header-item-wrapper">
                                     <i class="ae-icon-user"></i><br>
                                     <span>Anmelden</span>
-                                    <span class="d-none d-sm-inline">{{ trans("Ceres::Template.loginRegister") }}</span>
                                 </div>
                             </a>
 
                         {% endif %}
 
-                        </user-login-handler>
 
 
 
