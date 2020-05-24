@@ -5,24 +5,24 @@
 
 <nav class="navbar header-fw p-0 border-bottom{% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
     <div class="container-max d-block">
-        <div class="row scroll-logo-float-row-parent">
+        <div class="row mx-0 position-relative d-flex">
+            <div class="brand-wrapper px-lg-3{% if showHeaderNavBar == "side" %} position-relative{% endif %}">
+                <a class="navbar-brand py-2" href="{{ homepageURL }}">
+                    {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
+                        <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" />
+                    {% else %}
+                        <img alt="{{ companyName }}" src="{{ plugin_path('Ceres') }}/{{ companyLogo }}" class="img-fluid" />
+                    {% endif %}
+                </a>
 
-            <a href="/" class="hidden-sm hidden-xs scroll-logo-float-row">
-                    <img src="/layout/callisto_3/img/accessories-exclusive-logo.svg" alt="Accessories Exclusive" title="Accessories Exclusive" width="130" height="29" class="scroll-down-logo">
-            </a>
+                <button v-open-mobile-navigation class="navbar-toggler d-lg-none p-3" type="button">
+                    &#9776;
+                </button>
+            </div>
 
-            <div id="mainNavbarCollapsable" class="scroll-logo-float-row">
-                <ul class="breadcrumb">
-                    <li class="btnClose"></li>
-                </ul>
+            <div class="main-navbar-collapsable d-none d-lg-block" id="mainNavbarCollapsable">
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
-                    {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
                     {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
-
-                    <div id="search-toggle">
-                        <i class="ae-icon-magnifier"></i>
-                        <i class="ae-icon-cross-circle"></i>
-                    </div>
                 {% endif %}
             </div>
 
