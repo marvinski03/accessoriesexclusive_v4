@@ -1,9 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{% set searchStyle                  = widget.settings.searchStyle.mobile %}
-{{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
-
-
 <!-- TOP BAR START -->
 
 <header id="page-header" class="top-bar fixed-top">
@@ -111,7 +107,7 @@
             </div>
 
         </div>
-        {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
+        {% include "AccessoriesExclusive::PageDesign.Partials.Header.Navigation" %}
     </div>
 </header>
 
@@ -125,44 +121,28 @@
 
 <div class="container-max page-header">
     <div class="row">
-        <div id="searchBox" class="cmp cmp-search-box">
-
-                    {{ Twig.if("overrideSearchBar | trim is empty") }}
-                        <div class="always-visible-search">
-                            <item-search template="#vue-item-search"
-                                         :show-item-images="{{ showItemImages | json_encode }}"
-                                         :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
-                                <div class="search-box-inner">
-                                    <div class="search-box-shadow-frame">
-                                        <form action="/search" method="get">
-                                            <input type="search" class="search-input" name="query"/>
-                                            <button class="search-submit" type="submit">
-                                                <i class="fa fa-search sm-up"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </item-search>
-                        </div>
-                    {{ Twig.else() }}
-                        {{ Twig.print("overrideSearchBar | raw") }}
-                    {{ Twig.endif() }}
+        <div id="searchBox" class="cmp cmp-search-box collapse">
+            {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
+            {% if overrideSearchBar | trim is empty %}
+                <item-search></item-search>
+            {% else %}
+                {{ overrideSearchBar | raw }}
+            {% endif %}
         </div>
 
-        {% if enableCurrencySelect == "true" %}
+         {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
                 <div class="container-max">
                     <div class="row py-3">
-
                         <div class="currency-list col-12">
                             <div class="list-title">
                                 <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
                                 <hr>
                             </div>
-                            <ul class="text-center text-sm-left">
+                            <ul class="row text-center text-sm-left">
                                 {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
-                                    <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
-                                        <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
+                                    <li class="col-2 px-0{% if currency.name == services.checkout.getCurrencyData().name %} active{% endif %}">
+                                        <a class="nav-link" href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
                                             {% if currencyFormatSelect == 'all' %}
                                                 {{ currency.name }} <br class="d-block d-sm-none" />({{ currency.symbol }})
                                             {% else %}
@@ -178,47 +158,45 @@
             </div>
         {% endif %}
 
-        <shop-country-settings
-                country-flag-prefix="flag-icon-"
-                shipping-countries="{{ services.country.getActiveCountriesList() | filterFields(['id','currLangName', 'isoCode2', 'states.id', 'states.name']) | json_data("activeCountriesList") }}"
-                :shipping-country-id="{{ services.checkout.getShippingCountryId }}">
-            <div id="countrySettings" class="cmp cmp-country-settings collapse">
-                <div class="container-max">
-                    <div class="row py-3">
-                        <div class="col-12 col-lg-6">
+        <div id="countrySettings" class="cmp cmp-country-settings collapse">
+                                <div class="container-max">
+                                    <div class="row py-3">
+                                        <div class="col-12 col-lg-6">
 
-                            <div class="language-settings">
-                                <div class="list-title">
-                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
-                                    <hr>
-                                </div>
+                                            <div class="language-settings">
+                                                <div class="list-title">
+                                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+                                                    <hr>
+                                                </div>
 
-                                {% set languageList = services.webstoreConfig.getActiveLanguageList() %}
-                                {% set languageUrls = services.url.getLanguageURLs() %}
-                                <ul>
-                                    {% for language in languageList %}
-                                        <li{% if lang == language %} class="active"{% endif %}>
-                                            <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
-                                                <i class="flag-icon flag-icon-{{ language }}"></i>
-                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <div class="shipping-settings">
-                                <div class="list-title">
-                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
-                                    <hr>
+                                                {% set languageList = services.webstoreConfigurationRepository.getActiveLanguageList() %}
+                                                {% set languageUrls = services.url.getLanguageURLs() %}
+                                                <ul class="row">
+                                                    {% for language in languageList %}
+                                                        <li class="col-6 col-sm-4 px-0{% if lang == language %} active{% endif %}">
+                                                            <a class="nav-link" href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
+                                                                <i class="flag-icon flag-icon-{{ language }}"></i>
+                                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="shipping-settings">
+                                                <div class="list-title">
+                                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
+                                                    <hr>
+                                                </div>
+                                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </shop-country-settings>
     </div>
 </div>
