@@ -104,7 +104,7 @@ header#page-header {
       display: block;
       position: absolute;
       right: 55px;
-      top: -29px;
+      top: 9px;
   }
 
   img.desktop-logo {
@@ -206,9 +206,11 @@ header#page-header {
   }
 
   button#btnMainMenuToggler {
-      top: -18px !important;
-      font-size: 29px !important;
-      color: black;
+    top: 0px !important;
+    font-size: 29px !important;
+    color: black;
+    line-height: 1px !important;
+    height: 77px !important;
   }
 
   #mainNavbarCollapsable ul.breadcrumb {
@@ -658,7 +660,6 @@ nav.navbar {
     padding: 12px 17px 10px 17px;
     font-size: 15px;
     text-transform: uppercase;
-    top: 13px;
     position: relative;
 }
 
