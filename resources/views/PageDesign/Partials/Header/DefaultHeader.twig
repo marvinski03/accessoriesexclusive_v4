@@ -121,16 +121,31 @@
 
 <div class="container-max page-header">
     <div class="row">
-        <div id="searchBox" class="cmp cmp-search-box collapse">
-            {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
-            {% if overrideSearchBar | trim is empty %}
-                <item-search></item-search>
-            {% else %}
-                {{ overrideSearchBar | raw }}
-            {% endif %}
+        <div id="searchBox" class="cmp cmp-search-box">
+
+                    {{ Twig.if("overrideSearchBar | trim is empty") }}
+                        <div class="always-visible-search">
+                            <item-search template="#vue-item-search"
+                                         :show-item-images="{{ showItemImages | json_encode }}"
+                                         :forward-to-single-item="{{ forwardToSingleItem | json_encode }}">
+                                <div class="search-box-inner">
+                                    <div class="search-box-shadow-frame">
+                                        <form action="/search" method="get">
+                                            <input type="search" class="search-input" name="query"/>
+                                            <button class="search-submit" type="submit">
+                                                <i class="fa fa-search sm-up"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </item-search>
+                        </div>
+                    {{ Twig.else() }}
+                        {{ Twig.print("overrideSearchBar | raw") }}
+                    {{ Twig.endif() }}
         </div>
 
-         {% if enableCurrencySelect == "true" %}
+        {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
                 <div class="container-max">
                     <div class="row py-3">
@@ -158,7 +173,7 @@
             </div>
         {% endif %}
 
-        <div id="countrySettings" class="cmp cmp-country-settings collapse">
+         <div id="countrySettings" class="cmp cmp-country-settings collapse">
                                 <div class="container-max">
                                     <div class="row py-3">
                                         <div class="col-12 col-lg-6">
@@ -198,5 +213,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                
     </div>
 </div>
