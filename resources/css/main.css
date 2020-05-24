@@ -641,6 +641,7 @@ nav.navbar {
 
 #mainNavbarCollapsable ul.mainmenu {
     float: left !important;
+    height: 41px;
 }
 
 #mainNavbarCollapsable ul.mainmenu *{
@@ -657,7 +658,7 @@ nav.navbar {
     padding: 12px 17px 10px 17px;
     font-size: 15px;
     text-transform: uppercase;
-    top: 2px;
+    top: 13px;
     position: relative;
 }
 
