@@ -32,7 +32,7 @@
 
         <div id="main-head">
 
-            <div class="container header-content">
+            <div class="container header-content" data-header-offset>
                 <div class="row">
                     <div class="col-md-4 txt-left hidden-sm hidden-xs">
 
@@ -151,7 +151,7 @@
                                                     </template>
                                                 </basket-preview>
                                             </lazy-load>
-                                            
+
                         <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler d-lg-none" type="button">
                              &#9776;
                         </button>
@@ -160,7 +160,9 @@
             </div>
 
         </div>
-        {% include "AccessoriesExclusive::PageDesign.Partials.Header.Navigation" %}
+        
+        {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
+    
     </div>
 </header>
 
