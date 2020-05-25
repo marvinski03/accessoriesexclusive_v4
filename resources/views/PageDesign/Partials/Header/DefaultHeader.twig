@@ -51,7 +51,7 @@
 
                         {% else %}
 
-                         <a data-toggle="modal" href="#login">
+                         <a data-toggle="modal" href="#login" @mouseover.once="$store.dispatch('loadComponent', 'login-modal')">
 
                                 <div class="header-item-wrapper">
                                     <i class="ae-icon-user"></i><br>
