@@ -1910,6 +1910,12 @@ nav.navbar {
     font-size: 12px;
 }
 
+.basket-preview-wrapper{
+      z-index: 99999999999;
+}
+
+
+
 
 
 
