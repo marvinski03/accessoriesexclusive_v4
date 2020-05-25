@@ -88,7 +88,7 @@
                                 <span>Wunschliste</span>
                             </div>
                         </a>
-                        <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
+                        <a v-toggle-basket-preview href="#" class="toggle-basket-preview" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
                             <div class="header-item-wrapper">
                                 <span id="warenkorb-qty" class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
                                 <i class="ae-icon-cart"></i><br>
