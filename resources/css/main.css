@@ -1883,6 +1883,10 @@ div#mainNavbarCollapsable .breadcrumb {
     display: none;
 }
 
+body.basket-open div[id^="trustbadge-container"] {
+    display: none;
+}
+
 nav.navbar {
     padding: 11px;
 }
@@ -1914,6 +1918,14 @@ nav.navbar {
       z-index: 99999999999;
 }
 
+.modal-open .modal{
+  z-index: 9999999;
+}
+
+.modal-dialog {
+    top: 50%;
+    transform: translateY(-50%) !important;
+}
 
 
 
