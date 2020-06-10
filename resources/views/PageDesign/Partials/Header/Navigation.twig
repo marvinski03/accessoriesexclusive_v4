@@ -10,6 +10,13 @@
             <div class="main-navbar-collapsable d-none d-lg-block" id="mainNavbarCollapsable">
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
                     {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
+
+
+
+                    <div id="search-toggle">
+                        <i class="ae-icon-magnifier"></i>
+                        <i class="ae-icon-cross-circle"></i>
+                    </div>
                 {% endif %}
             </div>
 
