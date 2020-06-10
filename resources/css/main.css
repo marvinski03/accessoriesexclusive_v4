@@ -415,13 +415,13 @@ div#searchBox {
     display: block;
     background: none !important;
     background-color: none !important;
-    top: 158px;
+    top: 189px;
     position: absolute;
 }
 
 .activeSearch.scroll-header div#searchBox {
     position: fixed;
-    top: 0px;
+    top: -4px;
     z-index: 9999;
 }
 
@@ -437,7 +437,7 @@ input.search-input{
 .cmp-search-box .search-submit {
     cursor: pointer;
     background: #e9ecef;
-    height: 40px;
+    height: 41px;
     line-height: 29px;
 }
 
@@ -488,7 +488,7 @@ ul.breadcrumb * {
 
 div#searchBox {
     width: 100%;
-    max-width: 1165px !important;
+    max-width: 1167px !important;
     margin: 0 auto;
     transform: translateX(-30px);
 }
