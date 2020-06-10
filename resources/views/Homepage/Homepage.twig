@@ -24,6 +24,9 @@
 
 {% block PageBody %}
 
+{% set overrideHomepage = LayoutContainer.show("AccessoriesExclusive::Homepage") %}
+{{ overrideHomepage }}
+
 <div id="front-page">
 	<div class="container">
 		<div class="row">
