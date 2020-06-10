@@ -24,9 +24,6 @@
 
 {% block PageBody %}
 
-{% set overrideHomepage = LayoutContainer.show("AccessoriesExclusive::Homepage") %}
-{{ overrideHomepage }}
-
 <div id="front-page">
 	<div class="container">
 		<div class="row">
@@ -120,22 +117,9 @@
 			<span class="title custom-margin">Neu im Sortiment</span>
 			<div class="col">
 
-                    {% set shopBuilderTemplate = "" %}
-				    {% if category is defined and category is not null %}
-				        {# get shopbuilder template for category if defined #}
-				        {% set shopBuilderTemplate = shop_builder_category_template(category.id) %}
-				    {% endif %}
-
-				    {% if shopBuilderTemplate | trim is not empty %}
-				        {# show shopbuilder content for homepage category #}
-				        <div class="container-max">
-				            <div class="row">
-				                <div class="col">
-				                    {{ shopBuilderTemplate | raw }}
-				                </div>
-				            </div>
-				        </div>
-				    {% else %}
+		            {% for content in container("Ceres::Homepage") if content.plugin == "Plenty" %}
+                        {{ content.result|raw }}
+                    {% endfor %}
 
 			</div>
 		</div>
