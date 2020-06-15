@@ -497,6 +497,18 @@ div#searchBox {
   padding-left: 43px !important;
 }
 
+.qty-btn-container button.btn.qty-btn:first-of-type i {
+    top: 2px !important;
+    position: relative;
+    left: 2px;
+}
+
+.qty-btn-container button.btn.qty-btn:last-of-type i {
+    top: 3px;
+    position: relative;
+    left: 2px;
+}
+
 #search-toggle{
 position: absolute;
 right: 0px;
