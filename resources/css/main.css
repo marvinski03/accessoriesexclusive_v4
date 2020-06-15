@@ -487,10 +487,14 @@ ul.breadcrumb * {
 }
 
 div#searchBox {
-    width: 100%;
+    width: calc(100% - 33px);
     max-width: 1167px !important;
     margin: 0 auto;
     transform: translateX(-30px);
+}
+
+.search-input{
+  padding-left: 43px !important;
 }
 
 #search-toggle{
