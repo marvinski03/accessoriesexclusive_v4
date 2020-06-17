@@ -98,11 +98,6 @@ header#page-header {
   display: none;
 }
 
-.fl-mobile-smart-suggest {
-display: none !important;
-}
-
-
 @media (max-width: 992px){
 
   .mobile-menu a.toggle-basket-preview {
