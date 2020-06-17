@@ -98,6 +98,11 @@ header#page-header {
   display: none;
 }
 
+.fl-mobile-smart-suggest {
+display: none !important;
+}
+
+
 @media (max-width: 992px){
 
   .mobile-menu a.toggle-basket-preview {
@@ -414,6 +419,18 @@ img.mobile-logo {
 @media(max-width: 480px){
   .owl-carousel .owl-dots{
     display: none;
+  }
+
+  #searchBox{
+    display:none !important;
+  }
+
+  body.activeSearch #search-toggle .ae-icon-magnifier{
+    display: inline !important;
+  }
+
+  body.activeSearch #search-toggle .ae-icon-cross-circle{
+    display: none !important;
   }
 }
 
