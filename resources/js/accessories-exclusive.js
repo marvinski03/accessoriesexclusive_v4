@@ -26,6 +26,23 @@ jQuery(document).ready(function() {
 	jQuery("input[type='search']").attr("placeholder","Bitte Suchbegriff eingeben...").attr("name","query");
 	jQuery(".search-box-shadow-frame").wrap('<form action="/search" method="get"></form>');
 
+
+	/** MOBILE SEARCH TOGGLE **/
+
+	function setSearchPosition(){
+		if( jQuery(window).width() < 992 ){
+			$("#search-toggle").insertBefore(".mobile-menu .toggle-basket-preview");
+		}else{
+			$("#search-toggle").insertAfter("#mainNavbarCollapsable > ul");
+		}
+	}
+
+	setSearchPosition();
+
+	jQuery(window).resize(function(){
+		setSearchPosition();
+	});
+
 	/*jQuery(".variation-select").each(function(){
 		var curselect = jQuery(this).find("select.custom-select").children("option:selected").text();
 		if(curselect == "Bitte wählen"){
