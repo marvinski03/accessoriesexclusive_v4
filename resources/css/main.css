@@ -109,7 +109,7 @@ header#page-header {
 
   .activeSearch div#searchBox {
       z-index: 99;
-      top: 76px;
+      top: 76px !important;
       left: 0px;
       width: calc(100% + 30px);
   }
