@@ -416,10 +416,6 @@ img.mobile-logo {
     display: none;
   }
 
-  #searchBox{
-    display:none !important;
-  }
-
   body.activeSearch #search-toggle .ae-icon-magnifier{
     display: inline !important;
   }
