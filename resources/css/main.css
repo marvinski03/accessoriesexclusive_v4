@@ -1854,6 +1854,14 @@ h1.title, h1.title span {
     color: white !important;
   }
 
+a.btn.btn-outline-primary.go-shopping {
+    color: black;
+}
+
+a.btn.btn-outline-primary.go-shopping:hover {
+     color: white !important;
+}
+
 #add-item-to-basket-overlay .amzPayButton,
 #add-item-to-basket-overlay #ppButton{
     width: 135px!important;
