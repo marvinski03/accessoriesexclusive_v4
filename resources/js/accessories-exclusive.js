@@ -43,6 +43,17 @@ jQuery(document).ready(function() {
 		setSearchPosition();
 	});
 
+
+	/** WEITERSHOPPEN **/
+
+	$(".add-to-basket-container").click(function(){
+		if( $(".go-shopping").length  < 1 ){
+			setTimeout(function(){
+				$("#add-item-to-basket-overlay .modal-footer").prepend("<a data-dismiss='modal' aria-label='Close' rel='nofollow' class='btn btn-outline-primary btn-medium mr-2 go-shopping'><i class='fa fa-tags' aria-hidden='true'></i> Weitershoppen</a>");
+			},1000);
+		}
+	});
+
 	/*jQuery(".variation-select").each(function(){
 		var curselect = jQuery(this).find("select.custom-select").children("option:selected").text();
 		if(curselect == "Bitte wählen"){

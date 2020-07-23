@@ -1860,13 +1860,16 @@ h1.title, h1.title span {
     margin: 10px !important;
 }
 
+#add-item-to-basket-overlay .amzPayButton {
+  place-self: flex-end;
+}
+
 #add-item-to-basket-overlay  #ppButton {
     position: relative;
-    top: -50px;
-    left: 150px;
+    top: -55px;
+    left: 270px;
     margin-bottom: -35px !important;
-    margin-left: 0px !important;
-}
+    margin-left: 0px !important;}
 
 #add-item-to-basket-overlay .btn.btn-medium {
     min-width: 100px !important;
