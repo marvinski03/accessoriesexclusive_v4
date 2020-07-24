@@ -46,12 +46,13 @@ jQuery(document).ready(function() {
 
 	/** WEITERSHOPPEN **/
 
-	$(".add-to-basket-container").click(function(){
+	$('body').on('click', '.add-to-basket-container', function(event) {
 		if( $(".go-shopping").length  < 1 ){
 			setTimeout(function(){
 				$("#add-item-to-basket-overlay .modal-footer").prepend("<a data-dismiss='modal' aria-label='Close' rel='nofollow' class='btn btn-outline-primary btn-medium mr-2 go-shopping'><i class='fa fa-tags' aria-hidden='true'></i> Weitershoppen</a>");
 			},1000);
 		}
+		console.log("Go Shopping.");
 	});
 
 	/*jQuery(".variation-select").each(function(){
