@@ -697,7 +697,7 @@ nav.navbar {
     color:#4D4F4D;
 }
 
-#mainNavbarCollapsable ul.mainmenu>li.ddown>a {
+#mainNavbarCollapsable ul.mainmenu>li>a {
     padding: 12px 17px 10px 17px;
     font-size: 15px;
     text-transform: uppercase;
