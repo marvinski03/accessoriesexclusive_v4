@@ -1422,6 +1422,22 @@ button.slick-next.slick-arrow:before{content: "\e93c";}
     color: black;
 }
 
+a.badge {
+  background: #5d5d5d;
+  margin-bottom: 1px;
+  transition: all .3s;
+}
+
+a.badge:hover {
+  background: black;
+}
+
+a.badge *{
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+}
+
 
 @media all and (transform-3d), (-webkit-transform-3d) {
   .marken-slider .carousel-inner > .carousel-item {
