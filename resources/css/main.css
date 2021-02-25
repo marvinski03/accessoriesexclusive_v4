@@ -1438,6 +1438,10 @@ a.badge *{
     font-size: 12px;
 }
 
+.page-tags .list-controls-inner.p-2 {
+    display: none !important;
+}
+
 
 @media all and (transform-3d), (-webkit-transform-3d) {
   .marken-slider .carousel-inner > .carousel-item {
