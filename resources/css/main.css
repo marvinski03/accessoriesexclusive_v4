@@ -1596,11 +1596,9 @@ footer .row > div {
     }
 
     #page-body .border-box img {
+    height: 100% !important;
     object-fit: cover !important;
-    width: inherit !important;
-    max-width: inherit !important;
-    min-height: 100% !important;
-    object-position: center center !important;
+    object-position: center !important;
 }
 
 }
