@@ -1586,6 +1586,23 @@ footer .row > div {
   .hidden-md-down {
       display: none !important;
   }
+
+  .border-box{
+    min-height: 230px;
+  }
+
+  .border-box.inverse .border-box-txt-top{
+     line-height: 1;
+    }
+
+    #page-body .border-box img {
+    object-fit: cover !important;
+    width: inherit !important;
+    max-width: inherit !important;
+    min-height: 100% !important;
+    object-position: center center !important;
+}
+
 }
 
 div#newsletter {
