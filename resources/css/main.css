@@ -1591,7 +1591,7 @@ footer .row > div {
     min-height: 230px;
   }
 
-  .border-box.inverse .border-box-txt-top{
+  span.border-box-txt-top{
      line-height: 1;
     }
 
