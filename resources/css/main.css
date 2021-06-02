@@ -1991,6 +1991,34 @@ div#nl2go-form form > div > div:nth-of-type(4) label {
     border-radius: 0px !important;
 }
 
+/** COUNTRY FLAGS **/
+
+.ae-country-box {
+    text-align: center;
+    padding: 45px 15px 35px 15px;
+    background: #f6f6f6;
+    margin-bottom: 25px;
+    font-size: 13px;
+    transition: all .3s;
+}
+
+.ae-country-box img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: all .3s;
+}
+
+.ae-country-box:hover {
+    color: black !important;
+}
+
+
+.ae-country-box:hover img {
+    transform:scale(1.2);
+}
+
+
 
 /* CERES 5 */
 
@@ -2162,3 +2190,5 @@ nav.navbar {
 
 
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
