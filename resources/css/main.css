@@ -1479,6 +1479,14 @@ a.badge *{
     max-width: 100% !important;
 }
 
+.footer .col.clearfix {
+    padding: 0px !important;
+}
+
+.footer .widget.widget-code.widget-none {
+    margin: 0px !important;
+}
+
 
 ul.footerList .nav-link {
     padding: 0px !important;
