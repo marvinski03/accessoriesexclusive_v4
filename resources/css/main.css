@@ -265,6 +265,11 @@ header#page-header {
       padding: 20px 0px;
   }
 
+  .footer.container-max.d-print-none {
+    background: none !important;
+    max-width: 100% !important;
+}
+
   div#ae-top-bar {
     padding: 0px !important;
     background: white !important;
