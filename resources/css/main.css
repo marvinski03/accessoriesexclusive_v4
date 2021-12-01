@@ -1479,6 +1479,15 @@ a.badge *{
 
 /** footer **/
 
+ul.footerList .nav-link {
+    padding: 0px !important;
+}
+
+ul.footerList .nav-link i {
+    display: none;
+}
+
+
 .shop-sicherheit-komfort {
     padding: 65px 0px 45px 0px;
     background: #f6f6f6;
@@ -1534,11 +1543,12 @@ footer{
   justify-content: flex-end !important;
 }
 
-footer, footer a {
+footer, footer a,  footer a * {
     color: #828282 !important;
 }
 
-footer ul li a:hover{
+footer ul li a:hover,
+footer ul li a:hover *{
   color:black !important;
   text-decoration: none;
 }
