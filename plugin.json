@@ -1,5 +1,5 @@
 {
-    "version"           :   "5.0.2",
+    "version"           :   "5.0.43",
     "name"              :   "AccessoriesExclusive",
     "pluginIcon"        :   "icon_plugin_xs.png",
     "authorIcon"        :   "icon_author_xs.png",
@@ -10,7 +10,7 @@
     "author"            :   "plentymarkets GmbH",
     "type"              :   "theme",
     "require"           :   {
-                                "Ceres":"~5.0"
+                                "Ceres":"~5.0.43"
                             },
     "serviceProvider"   :   "AccessoriesExclusive\\Providers\\AccessoriesExclusiveServiceProvider",
     "dataProviders"     :
