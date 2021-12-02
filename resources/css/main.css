@@ -1921,6 +1921,9 @@ h1.title, h1.title span {
     height: auto;
 }
 
+.page-basket div#ppButton {
+    margin-top: 20px;
+}
 
 .basket-preview-content a.btn.btn-outline-primary.btn-block.basketBtn {
     height: 40px;
