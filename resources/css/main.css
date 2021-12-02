@@ -1955,12 +1955,13 @@ a.btn.btn-outline-primary.go-shopping:hover {
   place-self: flex-end;
 }
 
-#add-item-to-basket-overlay  #ppButton {
+#add-item-to-basket-overlay #ppButton {
     position: relative;
-    top: -55px;
-    left: 270px;
-    margin-bottom: -35px !important;
-    margin-left: 0px !important;}
+    top: -5px;
+    left: 414px;
+    margin-left: 0px !important;
+    display: block !important;
+}
 
 #add-item-to-basket-overlay .btn.btn-medium {
     min-width: 100px !important;
