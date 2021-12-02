@@ -1921,12 +1921,6 @@ h1.title, h1.title span {
     height: auto;
 }
 
-.basket-preview-content  #ppButton {
-    position: relative;
-    right: calc(-40% - 7px);
-    top: -42px;
-    margin-bottom: -35px;
-}
 
 .basket-preview-content a.btn.btn-outline-primary.btn-block.basketBtn {
     height: 40px;
