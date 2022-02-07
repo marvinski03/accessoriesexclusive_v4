@@ -44,6 +44,13 @@ jQuery(document).ready(function() {
 	});
 
 
+	/** VIDEO POPUP **/
+
+	jQuery("#guertel-kuerzen").click(function(){
+		window.open('https://youtu.be/_UElZGcxlDU','popup','width=700,height=500');
+		return false;
+	});
+
 	/** WEITERSHOPPEN **/
 
 	$('body').on('click', '.add-to-basket-container', function(event) {
