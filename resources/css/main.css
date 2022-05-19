@@ -1474,6 +1474,10 @@ a.badge *{
 
 /** footer **/
 
+.footer.container-max.d-print-none {
+    background: white !important;
+}
+
 .footer{
     background: none !important;
     max-width: 100% !important;
