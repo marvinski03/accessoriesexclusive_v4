@@ -2096,6 +2096,10 @@ nav.navbar {
     transform: translateY(-50%) !important;
 }
 
+a.btn.btn-outline-primary.btn-block {
+    padding-top: 11px;
+}
+
 
 
 /** paypal smart buttons **/
@@ -2113,7 +2117,7 @@ nav.navbar {
     margin-left: 5px;
 }
 
-body.page-singleitem .widget.paypal-installment-banner-graphical {
+.widget.paypal-installment-banner-graphical {
     display: none !important;
 }
 
