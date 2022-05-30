@@ -2113,6 +2113,9 @@ nav.navbar {
     margin-left: 5px;
 }
 
+body.page-singleitem .widget.paypal-installment-banner-graphical {
+    display: none !important;
+}
 
 
 /** icon font classes **/
