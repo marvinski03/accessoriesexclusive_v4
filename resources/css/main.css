@@ -2101,7 +2101,7 @@ nav.navbar {
 /** paypal smart buttons **/
 
 .paypalSmartButtons {
-    padding: 0px !important;
+    padding: 10px 0px 0px 0px !important;
     display: flex !important;
 }
 
