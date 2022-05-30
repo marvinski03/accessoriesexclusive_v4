@@ -2120,14 +2120,17 @@ a.btn.btn-outline-primary.btn-block {
   background: green !important;
   border-radius: 5px;
   text-transform: none;
+  width: 100%;
 }
 
 .paypalSmartButtons > div.paypal-buttons:first-of-type {
     margin-right: 5px;
+    flex: 1;
 }
 
 .paypalSmartButtons > div.paypal-buttons:last-of-type {
     margin-left: 5px;
+    flex: 1;
 }
 
 .widget.paypal-installment-banner-graphical {
