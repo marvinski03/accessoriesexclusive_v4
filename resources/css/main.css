@@ -2107,13 +2107,26 @@ a.btn.btn-outline-primary.btn-block {
 .paypalSmartButtons {
     padding: 10px 0px 0px 0px !important;
     display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.paypalSmartButtons > div:first-of-type {
+.paypalSmartButtons > div{
+  margin-top: 10px;
+}
+
+.paypalSmartButtons > div.per-vorkasse{
+  margin-top: 10px;
+  background: green !important;
+  border-radius: 5px;
+  text-transform: none;
+}
+
+.paypalSmartButtons > div.paypal-buttons:first-of-type {
     margin-right: 5px;
 }
 
-.paypalSmartButtons > div:last-of-type {
+.paypalSmartButtons > div.paypal-buttons:last-of-type {
     margin-left: 5px;
 }
 
