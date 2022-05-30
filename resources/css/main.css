@@ -2098,6 +2098,20 @@ nav.navbar {
 
 
 
+/** paypal smart buttons **/
+
+.paypalSmartButtons {
+    padding: 0px !important;
+    display: flex !important;
+}
+
+.paypalSmartButtons > div:first-of-type {
+    margin-right: 5px;
+}
+
+.paypalSmartButtons > div:last-of-type {
+    margin-left: 5px;
+}
 
 
 
@@ -2216,5 +2230,7 @@ nav.navbar {
 
 
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
 
 
