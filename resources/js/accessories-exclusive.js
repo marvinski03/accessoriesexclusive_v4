@@ -21,6 +21,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		$(".add-to-basket-container button").click();
 		$(".modal .paypalSmartButtons").css("height","0px").css("overflow","hidden");
+		setTimeout(function(){$(".modal .paypalSmartButtons").css("height","0px").css("overflow","hidden");},400);
+		setTimeout(function(){$(".modal .paypalSmartButtons").css("height","0px").css("overflow","hidden");},800);
 	});
 
 	
