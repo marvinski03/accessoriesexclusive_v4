@@ -2127,7 +2127,7 @@ a.btn.btn-outline-primary.btn-block {
   width: 100%;
 }
 
- a.btn.btn-primary, .btn.btn-primary.per-vorkasse{
+.btn.btn-primary.per-vorkasse{
   background: green !important;
  }
 
