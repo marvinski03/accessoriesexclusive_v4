@@ -15,6 +15,14 @@ jQuery(document).ready(function() {
 
 	$("body.page-basket .paypalSmartButtons").prepend("<a href='/checkout' class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</a>");
 
+
+	$('.toggle-basket-preview').click(function(){
+		alert("test");
+		setTimeout(function(){
+			$(".basket-preview-footer .paypalSmartButtons").prepend("<a href='/checkout' class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</a>");
+		},200);
+	});
+
 	$(".widget-add-to-basket .paypalSmartButtons").prepend("<div class='per-vorkasse ae-pv-single btn btn-primary'>Per Vorkasse zahlen</div>");
 
 	$('body').on('click', '.ae-pv-single', function(e) {
