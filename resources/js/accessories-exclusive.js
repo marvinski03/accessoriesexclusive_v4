@@ -13,11 +13,14 @@ jQuery(document).ready(function() {
 
 	setHeader();
 
-	$(".paypalSmartButtons").prepend("<div class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</div>");
+	$("body.page-basket .paypalSmartButtons").prepend("<a href='/checkout' class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</a>");
 
-	$('body').on('click', 'body.page-singleitem .per-vorkasse', function(e) {
+	$(".widget-add-to-basket .paypalSmartButtons").prepend("<div class='per-vorkasse ae-pv-single btn btn-primary'>Per Vorkasse zahlen</div>");
+
+	$('body').on('click', '.ae-pv-single', function(e) {
 		e.preventDefault();
 		$(".add-to-basket-container button").click();
+		$(".modal .paypalSmartButtons").css("height","0px").css("overflow","hidden");
 	});
 
 	

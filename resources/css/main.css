@@ -2119,13 +2119,17 @@ a.btn.btn-outline-primary.btn-block {
   margin-top: 10px;
 }
 
-.paypalSmartButtons > div.per-vorkasse{
+.paypalSmartButtons > .per-vorkasse{
   margin-top: 10px;
   background: green !important;
   border-radius: 5px;
-  text-transform: none;
+  text-transform: none !important; 
   width: 100%;
 }
+
+ a.btn.btn-primary, .btn.btn-primary.per-vorkasse{
+  background: green !important;
+ }
 
 .paypalSmartButtons > .paypal-buttons{
   flex: 1;
