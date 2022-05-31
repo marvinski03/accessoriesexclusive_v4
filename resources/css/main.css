@@ -2111,6 +2111,10 @@ a.btn.btn-outline-primary.btn-block {
     flex-wrap: wrap;
 }
 
+.modal .paypalSmartButtons {
+    padding: 10px !important;
+}
+
 .paypalSmartButtons > div{
   margin-top: 10px;
 }
@@ -2138,6 +2142,14 @@ a.btn.btn-outline-primary.btn-block {
 
 .widget.paypal-installment-banner-graphical {
     display: none !important;
+}
+
+.modal .go-shopping {
+    display: none;
+}
+
+.modal .go-shopping:first-of-type {
+    display: inline-block;
 }
 
 

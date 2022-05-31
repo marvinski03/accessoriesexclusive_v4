@@ -13,6 +13,15 @@ jQuery(document).ready(function() {
 
 	setHeader();
 
+	$(".paypalSmartButtons").prepend("<div class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</div>");
+
+	$('body').on('click', 'body.page-singleitem .per-vorkasse', function(e) {
+		e.preventDefault();
+		$(".add-to-basket-container button").click();
+	});
+
+	
+
 	jQuery(document).scroll(function() {
 	    setHeader();
 	});
