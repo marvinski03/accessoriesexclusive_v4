@@ -17,10 +17,11 @@ jQuery(document).ready(function() {
 
 
 	$('.toggle-basket-preview').click(function(){
-		alert("test");
-		setTimeout(function(){
-			$(".basket-preview-footer .paypalSmartButtons").prepend("<a href='/checkout' class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</a>");
-		},200);
+		if( $(".basket-preview-footer .paypalSmartButtons .per-vorkasse").length < 1){
+			setTimeout(function(){
+				$(".basket-preview-footer .paypalSmartButtons").prepend("<a href='/checkout' class='per-vorkasse btn btn-primary'>Per Vorkasse zahlen</a>");
+			},200);
+		}
 	});
 
 	$(".widget-add-to-basket .paypalSmartButtons").prepend("<div class='per-vorkasse ae-pv-single btn btn-primary'>Per Vorkasse zahlen</div>");
