@@ -234,10 +234,11 @@
 
 					<div id="yt-video-anleitung">
 
-						<div class="embed-container">
-							<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/_UElZGcxlDU"></iframe>
-						</div>
-
+						<video width="530" height="304" controls style="width:100%;height:auto;">
+						  <source src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/video/lindenmann-lederguertel-kuerzen.mp4" type="video/mp4">
+						  <source src="https://cdn02.plentymarkets.com/w5u2kzpj7f3t/frontend/video/lindenmann-lederguertel-kuerzen.webm" type="video/webm">
+						Your browser does not support the video tag.
+						</video>
 					</div>
 				</div>
 
@@ -485,6 +486,7 @@
 			$("#video-anleitung").click(function(){
 				$(this).css("display","none");
 				$("#yt-video-anleitung").css("display","block");
+				$("#yt-video-anleitung video").get(0).play();
 			});
 		});
 
