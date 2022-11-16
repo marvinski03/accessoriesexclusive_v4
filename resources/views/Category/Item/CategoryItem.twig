@@ -232,7 +232,7 @@
                                 {# Details der Unterkategorie in einem Kommentar ausgeben #}
                                 <!--{{ subCategory | json_encode(constant('JSON_PRETTY_PRINT')) }}-->
                                  
-                                <a href="{{ completeUrl }}" class="widget-inner">
+                                <a href="{{ completeUrl }}" class="btn btn-primary" >
                                             {{ subCategory.details[0].name }}
                                 </a>
                                 
@@ -263,11 +263,13 @@
 
         </div>
         {% if ceresConfig.pagination.position in ['bottom', 'top_bottom'] %}
-            <div class="list-controls mb-5 row">
-                <div class="col-12">
-                    {% include "Ceres::Category.Item.Partials.Pagination" %}
+            {% if not category.id == '29' %}
+                <div class="list-controls mb-5 row">
+                    <div class="col-12">
+                        {% include "Ceres::Category.Item.Partials.Pagination" %}
+                    </div>
                 </div>
-            </div>
+             {% endif %}
         {% endif %}
     </div>
 
