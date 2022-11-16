@@ -64,6 +64,11 @@
     grid-gap: 15px;
 }
 
+@media(max-width: 480px){
+  .btn-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 
 /** GENERAL **/
