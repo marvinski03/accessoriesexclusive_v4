@@ -230,17 +230,21 @@
                             <!-- Unterkategorien Thumbnails -->
                                 
                                 {% for subCategory in subCategories if "item" == subCategory.type and "Y" == subCategory.linklist %}
+
+                                 {{ dump(subCategory.details) }}
                                 
-                                {# Url der Unterkategorie definieren #}
-                                {% set current = request.getRequestUri()|split('?')[0] %}
-                                {% set completeUrl = urlLanguageCode ~ current ~ "/" ~ subCategory.details[0].nameUrl %}
+                                        {# Url der Unterkategorie definieren #}
+                                        {% set current = request.getRequestUri()|split('?')[0] %}
+                                        {% set completeUrl = urlLanguageCode ~ current ~ "/" ~ subCategory.details[0].nameUrl %}
+                                        
+                                        {# Details der Unterkategorie in einem Kommentar ausgeben #}
+                                        <!--{{ subCategory | json_encode(constant('JSON_PRETTY_PRINT')) }}-->
+                                         
+                                        <a href="{{ completeUrl }}" class="btn btn-primary" >
+                                                    {{ subCategory.details[0].name }}
+                                        </a>
+
                                 
-                                {# Details der Unterkategorie in einem Kommentar ausgeben #}
-                                <!--{{ subCategory | json_encode(constant('JSON_PRETTY_PRINT')) }}-->
-                                 
-                                <a href="{{ completeUrl }}" class="btn btn-primary" >
-                                            {{ subCategory.details[0].name }}
-                                </a>
                                 
                                 {% endfor %}
                                 
