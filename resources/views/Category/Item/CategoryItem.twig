@@ -231,7 +231,8 @@
                                 
                                 {% for subCategory in subCategories if "item" == subCategory.type and "Y" == subCategory.linklist %}
 
-                                 {{ dump(subCategory.details) }}
+                                {{ subCategory.details | json_encode }}
+                                 
                                 
                                         {# Url der Unterkategorie definieren #}
                                         {% set current = request.getRequestUri()|split('?')[0] %}
