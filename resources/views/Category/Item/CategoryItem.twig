@@ -231,7 +231,7 @@
                                 
                                 {% for subCategory in subCategories if "item" == subCategory.type and "Y" == subCategory.linklist %}
 
-                                {{ subCategory | json_encode }}
+                                 {% if subCategory.itemCount[0].count > 0 %}
                                  
                                 
                                         {# Url der Unterkategorie definieren #}
@@ -244,6 +244,8 @@
                                         <a href="{{ completeUrl }}" class="btn btn-primary" >
                                                     {{ subCategory.details[0].name }}
                                         </a>
+
+                                    {% endif %}
 
                                 
                                 
