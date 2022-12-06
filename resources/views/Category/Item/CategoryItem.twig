@@ -231,7 +231,7 @@
                                 
                                 {% for subCategory in subCategories if "item" == subCategory.type and "Y" == subCategory.linklist %}
 
-                                {{ subCategory.details | json_encode }}
+                                {{ subCategory | json_encode }}
                                  
                                 
                                         {# Url der Unterkategorie definieren #}
