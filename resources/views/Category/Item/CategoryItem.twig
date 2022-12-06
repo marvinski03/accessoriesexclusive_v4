@@ -33,7 +33,7 @@
             </div>
 
             <!-- HERREN BOXEN -->
-            {% if category.id == '29' %}
+            {% if category.id in ['29','84'] %}
                 <div class="">
                     <div class="row category-lvl-border-boxes">
                         <div class="col-sm-6 col-md-4">
@@ -127,7 +127,7 @@
             {% endif %}
 
 
-        {% if not category.id == '29' %}
+        {% if category.id not in ['29','84'] %}
 
         <div class="list-controls mb-5">
             <div class="list-controls-inner">
@@ -212,7 +212,7 @@
          
 
             <div class="col-12 col-lg-9">
-                {% if category.id == '29' %}
+                {% if category.id in ['29','84'] %}
 
                     <h2>Bitte wählen Sie eine Unterkategorie</h2>
 
@@ -269,7 +269,7 @@
 
         </div>
         {% if ceresConfig.pagination.position in ['bottom', 'top_bottom'] %}
-            {% if not category.id == '29' %}
+            {% if category.id not in ['29','84'] %}
                 <div class="list-controls mb-5 row">
                     <div class="col-12">
                         {% include "Ceres::Category.Item.Partials.Pagination" %}
