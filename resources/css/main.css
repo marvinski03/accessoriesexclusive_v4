@@ -59,6 +59,12 @@
     display: none !important;
 }
 
+/** HIDE FINDOLOGIC **/
+
+.findologic-filter-wrapper.mb-5 {
+    display: none !important;
+}
+
 
 
 /** BTN GRP **/
