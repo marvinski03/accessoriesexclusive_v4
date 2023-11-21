@@ -55,6 +55,11 @@
 }
 
 
+.filter-badge {
+    display: none !important;
+}
+
+
 
 /** BTN GRP **/
 
