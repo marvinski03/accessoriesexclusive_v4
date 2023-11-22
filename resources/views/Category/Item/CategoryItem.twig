@@ -236,7 +236,7 @@
                                 
                                         {# Url der Unterkategorie definieren #}
                                         {% set current = request.getRequestUri()|split('?')[0] %}
-                                        {% set completeUrl = urlLanguageCode ~ current  ~ subCategory.details[0].nameUrl %}
+                                        {% set completeUrl = urlLanguageCode ~ current ~ "/" ~ subCategory.details[0].nameUrl %}
                                         
                                         {# Details der Unterkategorie in einem Kommentar ausgeben #}
                                         <!--{{ subCategory | json_encode(constant('JSON_PRETTY_PRINT')) }}-->
