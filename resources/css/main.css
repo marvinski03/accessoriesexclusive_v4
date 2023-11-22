@@ -59,13 +59,23 @@
     display: none !important;
 }
 
-/** HIDE FINDOLOGIC **/
-
-.findologic-filter-wrapper.mb-5 {
-    display: none !important;
+.findologic-filter-wrapper .form-check-input {
+    position: relative !important;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+    top: -2px;
 }
 
+.findologic-filter-wrapper label.form-check-label {
+    display: inline !important;
+    padding-left: 0px !important;
+    background: none !important;
+}
 
+.findologic-filter-wrapper #filterCollapse .container-max .card-columns.row {
+    margin: 0px !important;
+}
 
 /** BTN GRP **/
 
