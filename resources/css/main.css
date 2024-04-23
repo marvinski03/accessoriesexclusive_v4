@@ -1545,18 +1545,31 @@ ul.footerList .nav-link i {
 
 
 .shop-sicherheit-komfort {
-    padding: 65px 0px 45px 0px;
+    padding: 75px 0px 65px 0px;
     background: #f6f6f6;
     font-size: 16px;
     color: black;
     margin-top: 30px;
     text-align: center;
-    min-height: 270px;
+    min-height: 300px;
+}
+
+
+.pre-footer-notice {
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    line-height: 1.1em;
+    max-width: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    opacity: 0.7;
 }
 
   img.gruener-punkt {
     max-width: 59px;
-    margin-right: 30px !important;
+    margin-right: 20px !important;
     margin-bottom: -20px !important;
     position: relative;
     top: -10px;
